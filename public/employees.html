@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reprime Backend - Karyawan</title>
+
+    <!-- Font - Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font - Proxima Nova -->
+    <link
+      href="https://fonts.cdnfonts.com/css/proxima-nova-2?styles=44821"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="min-h-screen min-w-full">
+      <nav
+        id="sidebar"
+        class="relative float-left flex min-h-screen w-[25vw] flex-col rounded-r-2xl bg-[#222A3C] p-4 text-sm text-white xl:w-[20vw] 2xl:w-[15vw]"
+      >
+        <div class="relative z-10 my-6 flex items-center justify-center">
+          <!-- Logo -->
+          <a href="#" class="mr-8 flex gap-3">
+            <img
+              class="w-[30px]"
+              src="assets/reprime_logo.svg"
+              alt="Logo Reprime"
+            />
+            <h1 class="font-logo text-xl font-semibold tracking-wider">
+              REPRIME
+            </h1>
+          </a>
+          <!-- End Logo -->
+
+          <!-- Sidebar Button -->
+          <button
+            class="absolute -right-4 rounded-l-xl border border-[#EEEEEE] bg-white px-1 py-3"
+          >
+            <img
+              class="w-[25px]"
+              src="assets/icons/menu-1.svg"
+              alt="Sidebar Hamburger Icon"
+            />
+          </button>
+          <!-- Sidebar Button -->
+        </div>
+
+        <!-- Nav Items -->
+        <div class="z-10 my-6 flex flex-col gap-6">
+          <hr class="opacity-[0.2]" />
+
+          <a
+            href="#"
+            class="group rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:text-black hover:opacity-100"
+          >
+            <div class="flex justify-between">
+              <div class="flex items-center gap-4">
+                <img
+                  class="w-[20px] invert transition-all duration-500 group-hover:ml-3 group-hover:invert-0"
+                  src="assets/icons/element-2.svg"
+                  alt="Sidebar Dashboard Icon"
+                />
+
+                <span>Dashboard</span>
+              </div>
+            </div>
+          </a>
+
+          <div>
+            <button
+              class="group w-full rounded-xl bg-white px-4 py-3 text-black"
+            >
+              <div class="flex justify-between">
+                <div class="flex items-center gap-4">
+                  <img
+                    class="ml-3 w-[20px]"
+                    src="assets/icons/profile-2user.svg"
+                    alt="Sidebar Employees Icon"
+                  />
+
+                  <span>Karyawan</span>
+                </div>
+
+                <img
+                  class="mr-3 w-[20px]"
+                  src="assets/icons/arrow-down-1.svg"
+                  alt="Sidebar Expand Icon"
+                />
+              </div>
+            </button>
+
+            <div class="m-6 flex flex-col gap-4">
+              <a href="#" class="font-semibold">Data Karyawan</a>
+              <a
+                href="#"
+                class="opacity-75 transition-all duration-500 hover:font-semibold hover:opacity-100"
+                >Kontrak Kerja</a
+              >
+            </div>
+          </div>
+
+          <div>
+            <button
+              class="group w-full rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:text-black hover:opacity-100"
+            >
+              <div class="flex justify-between">
+                <div class="flex items-center gap-4">
+                  <img
+                    class="w-[20px] invert transition-all duration-500 group-hover:ml-3 group-hover:invert-0"
+                    src="assets/icons/note-1.svg"
+                    alt="Sidebar Presences Icon"
+                  />
+
+                  <span>Kehadiran</span>
+                </div>
+
+                <img
+                  class="w-[20px] invert transition-all duration-500 group-hover:mr-3 group-hover:invert-0"
+                  src="assets/icons/arrow-down-1.svg"
+                  alt="Sidebar Expand Icon"
+                />
+              </div>
+            </button>
+
+            <!--
+              <div class="m-6 flex flex-col gap-4">
+
+              </div>
+             -->
+          </div>
+
+          <div>
+            <button
+              class="group w-full rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:text-black hover:opacity-100"
+            >
+              <div class="flex justify-between">
+                <div class="flex items-center gap-4">
+                  <img
+                    class="w-[20px] invert transition-all duration-500 group-hover:ml-3 group-hover:invert-0"
+                    src="assets/icons/task-square.svg"
+                    alt="Sidebar Performance Icon"
+                  />
+
+                  <span>Kinerja</span>
+                </div>
+
+                <img
+                  class="w-[20px] invert transition-all duration-500 group-hover:mr-3 group-hover:invert-0"
+                  src="assets/icons/arrow-down-1.svg"
+                  alt="Sidebar Expand Icon"
+                />
+              </div>
+            </button>
+
+            <!--
+              <div class="m-6 flex flex-col gap-4">
+
+              </div>
+             -->
+          </div>
+
+          <a
+            href="#"
+            class="group rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:text-black hover:opacity-100"
+          >
+            <div class="flex justify-between">
+              <div class="flex items-center gap-4">
+                <img
+                  class="w-[20px] invert transition-all duration-500 group-hover:ml-3 group-hover:invert-0"
+                  src="assets/icons/wallet-3.svg"
+                  alt="Sidebar Finance Icon"
+                />
+
+                <span>Finance</span>
+              </div>
+            </div>
+          </a>
+
+          <div>
+            <button
+              class="group w-full rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:text-black hover:opacity-100"
+            >
+              <div class="flex justify-between">
+                <div class="flex items-center gap-4">
+                  <img
+                    class="w-[20px] invert transition-all duration-500 group-hover:ml-3 group-hover:invert-0"
+                    src="assets/icons/clipboard-text.svg"
+                    alt="Sidebar Task Icon"
+                  />
+
+                  <span>Task</span>
+                </div>
+
+                <img
+                  class="w-[20px] invert transition-all duration-500 group-hover:mr-3 group-hover:invert-0"
+                  src="assets/icons/arrow-down-1.svg"
+                  alt="Sidebar Expand Icon"
+                />
+              </div>
+            </button>
+
+            <!--
+              <div class="m-6 flex flex-col gap-4">
+
+              </div>
+             -->
+          </div>
+
+          <hr class="opacity-[0.2]" />
+
+          <a
+            href="#"
+            class="group rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:text-black hover:opacity-100"
+          >
+            <div class="flex justify-between">
+              <div class="flex items-center gap-4">
+                <img
+                  class="w-[20px] invert transition-all duration-500 group-hover:ml-3 group-hover:invert-0"
+                  src="assets/icons/setting-2.svg"
+                  alt="Sidebar Settings Icon"
+                />
+
+                <span>Pengaturan</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <!-- End Nav Items -->
+
+        <div
+          class="z-10 mt-auto flex w-full flex-col gap-4 rounded-xl bg-white/[0.15] p-4 text-sm"
+        >
+          <span class="font-semibold">
+            Storage: <span class="text-[#76D210]">40MB / 3GB</span>
+          </span>
+          <div class="flex justify-between">
+            <a href="#" class="flex items-center gap-3">
+              <img
+                class="w-[15px] invert"
+                src="assets/icons/clock.svg"
+                alt="Sidebar History Icon"
+              />
+              History
+            </a>
+            <span>|</span>
+            <a href="#" class="flex items-center gap-3">
+              <img
+                class="w-[15px] invert"
+                src="assets/icons/layer.svg"
+                alt="Sidebar Update Icon"
+              />
+              Update
+            </a>
+          </div>
+        </div>
+
+        <!-- Illustration -->
+        <img
+          class="absolute bottom-0 left-0 w-full"
+          src="assets/sidebar_illustration.svg"
+          alt="Sidebar Illustration"
+        />
+        <!-- End Illustration -->
+      </nav>
+
+      <main
+        id="content"
+        class="float-right w-[75vw] xl:w-[80vw] 2xl:w-[85vw]"
+      ></main>
+    </div>
+  </body>
+</html>
