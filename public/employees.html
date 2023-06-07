@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;1,400&family=Urbanist:wght@500;800&display=swap"
       rel="stylesheet"
     />
 
@@ -305,10 +305,124 @@
         <!-- End Illustration -->
       </nav>
 
-      <main
-        id="content"
-        class="float-right w-[75vw] xl:w-[80vw] 2xl:w-[85vw]"
-      ></main>
+      <main class="float-right w-[75vw] xl:w-[80vw] 2xl:w-[85vw]">
+        <!-- Topbar -->
+        <div id="topbar" class="flex items-center justify-between px-6 py-2">
+          <span class="font-semibold">Karyawan</span>
+
+          <form
+            class="flex w-full max-w-[360px] items-center gap-3 rounded-full border border-[#EEEEEE] bg-[#F6F6F6] px-4 text-sm font-bold text-black"
+          >
+            <button type="submit">
+              <img
+                class="w-[20px]"
+                src="assets/icons/search-normal-1.svg"
+                alt="Search Icon"
+              />
+            </button>
+
+            <input
+              class="w-full bg-[#F6F6F6] py-1 placeholder:font-bold placeholder:text-black focus:outline-none"
+              type="text"
+              name="search"
+              id="search"
+              placeholder="Search"
+            />
+          </form>
+
+          <div class="flex items-center gap-8 text-sm font-bold">
+            <a href="#">Grid</a>
+            <a class="text-[#216FED]" href="#">List</a>
+            <button type="button">Filter</button>
+            <a href="#">Export</a>
+            <button type="button">Import</button>
+            <button type="button">Bulk Action</button>
+            <a href="#">Tambah Karyawan</a>
+          </div>
+        </div>
+        <!-- End Topbar -->
+
+        <!-- Content -->
+        <section id="content" class="rounded-t-[40px] bg-[#F6F6F6] px-6 py-6">
+          <!-- Main -->
+          <div class="space-y-6 rounded-[30px] bg-white p-6 text-sm">
+            <!-- Menu -->
+            <div
+              class="flex w-fit gap-0.5 rounded-full bg-[#131B2D] p-0.5 text-white"
+            >
+              <button
+                class="rounded-full bg-white px-5 py-3 text-[#131B2D] transition duration-300"
+              >
+                Area
+              </button>
+              <button
+                class="rounded-full px-5 py-3 transition duration-300 hover:bg-white hover:text-[#131B2D]"
+              >
+                Lokasi
+              </button>
+              <button
+                class="rounded-full px-5 py-3 transition duration-300 hover:bg-white hover:text-[#131B2D]"
+              >
+                Kantor
+              </button>
+              <button
+                class="rounded-full px-5 py-3 transition duration-300 hover:bg-white hover:text-[#131B2D]"
+              >
+                Divisi
+              </button>
+            </div>
+            <!-- End Menu -->
+
+            <!-- Statistics -->
+            <div class="flex gap-4 font-urbanist text-white">
+              <div
+                class="flex items-center gap-3 rounded-full bg-[#62C451] px-7 py-2"
+              >
+                <span class="font-medium">Karyawan Tetap</span>
+                <span class="text-lg font-extrabold">25</span>
+              </div>
+
+              <div
+                class="flex items-center gap-3 rounded-full bg-[#FAC25C] px-7 py-2"
+              >
+                <span class="font-medium">Karyawan Kontrak</span>
+                <span class="text-lg font-extrabold">25</span>
+              </div>
+
+              <div
+                class="flex items-center gap-3 rounded-full bg-[#FA815A] px-7 py-2"
+              >
+                <span class="font-medium">Karyawan Freelance</span>
+                <span class="text-lg font-extrabold">20</span>
+              </div>
+
+              <div
+                class="flex items-center gap-3 rounded-full bg-[#8145F4] px-7 py-2"
+              >
+                <span class="font-medium">Karyawan Magang</span>
+                <span class="text-lg font-extrabold">20</span>
+              </div>
+
+              <div
+                class="flex items-center gap-3 rounded-full bg-[#1F3775] px-7 py-2"
+              >
+                <span class="font-medium">Karyawan Harian Lepas</span>
+                <span class="text-lg font-extrabold">10</span>
+              </div>
+
+              <div
+                class="flex items-center gap-3 rounded-full bg-[#B93F61] px-7 py-2"
+              >
+                <span class="font-medium">Karyawan Tidak Aktif</span>
+                <span class="text-lg font-extrabold">10</span>
+              </div>
+            </div>
+            <!-- End Statistics -->
+          </div>
+          <!-- End Main -->
+        </section>
+        <!-- End Content -->
+      </main>
     </div>
   </body>
 </html>

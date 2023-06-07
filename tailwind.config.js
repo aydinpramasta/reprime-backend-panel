@@ -5,6 +5,7 @@ module.exports = {
     fontFamily: {
       sans: ["Plus Jakarta Sans", "sans-serif"],
       logo: ["Proxima Nova", "sans-serif"],
+      urbanist: ["Urbanist", "sans-serif"],
     },
   },
   plugins: [],
