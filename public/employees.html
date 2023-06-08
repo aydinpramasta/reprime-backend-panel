@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reprime Backend - Karyawan</title>
 
-    <!-- Font - Plus Jakarta Sans -->
+    <!-- Font - Plus Jakarta Sans & Urbanist -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -110,6 +110,7 @@
             </button>
 
             <div
+              x-cloak
               x-show="open"
               x-transition.duration.300ms
               class="m-6 flex flex-col gap-4"
@@ -150,6 +151,7 @@
             </button>
 
             <div
+              x-cloak
               x-show="open"
               x-transition.duration.300ms
               class="m-6 flex flex-col gap-4"
@@ -183,6 +185,7 @@
             </button>
 
             <div
+              x-cloak
               x-show="open"
               x-transition.duration.300ms
               class="m-6 flex flex-col gap-4"
@@ -212,6 +215,7 @@
           <!-- Multilevel Inactive Nav Item -->
           <div x-data="{ open: false }">
             <button
+              x-cloak
               @click="open = !open"
               class="group w-full rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:px-7 hover:text-black hover:opacity-100"
             >
