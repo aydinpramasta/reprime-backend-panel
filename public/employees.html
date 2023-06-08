@@ -314,6 +314,7 @@
         <div id="topbar" class="flex items-center justify-between px-6 py-2">
           <span class="font-semibold">Karyawan</span>
 
+          <!-- Search Form -->
           <form
             class="flex w-full max-w-[360px] items-center gap-3 rounded-full border border-[#EEEEEE] bg-[#F6F6F6] px-4 text-sm font-bold text-black"
           >
@@ -333,21 +334,27 @@
               placeholder="Search"
             />
           </form>
+          <!-- End Search Form -->
 
+          <!-- Page Actions -->
           <div class="flex items-center gap-8 text-sm font-bold">
-            <a href="#">Grid</a>
-            <a class="text-[#216FED]" href="#">List</a>
+            <a class="text-[#216FED]" href="#">Grid</a>
+            <a href="#">List</a>
             <button type="button">Filter</button>
             <a href="#">Export</a>
             <button type="button">Import</button>
             <button type="button">Bulk Action</button>
             <a href="#">Tambah Karyawan</a>
           </div>
+          <!-- Page Actions -->
         </div>
         <!-- End Topbar -->
 
-        <!-- Content -->
-        <section id="content" class="rounded-t-[40px] bg-[#F6F6F6] px-6 py-6">
+        <!-- Wrapper -->
+        <section
+          id="wrapper"
+          class="space-y-6 rounded-t-[40px] bg-[#F6F6F6] p-6"
+        >
           <!-- Main -->
           <div class="space-y-6 rounded-[30px] bg-white p-6 text-sm">
             <!-- Menu -->
@@ -424,8 +431,1095 @@
             <!-- End Statistics -->
           </div>
           <!-- End Main -->
+
+          <!-- Content - Grid Page -->
+          <div
+            id="content"
+            class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5"
+          >
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Syafie Muhammad</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <button type="button">
+                  <img src="assets/icons/more.svg" alt="Employee More Icons" />
+                </button>
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Savannah Nguyen</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <button type="button">
+                  <img src="assets/icons/more.svg" alt="Employee More Icons" />
+                </button>
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Ralph Edwards</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <button type="button">
+                  <img src="assets/icons/more.svg" alt="Employee More Icons" />
+                </button>
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Guy Hawkins</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <button type="button">
+                  <img src="assets/icons/more.svg" alt="Employee More Icons" />
+                </button>
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Guy Hawkins</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <button type="button">
+                  <img src="assets/icons/more.svg" alt="Employee More Icons" />
+                </button>
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Syafie Muhammad</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <button type="button">
+                  <img src="assets/icons/more.svg" alt="Employee More Icons" />
+                </button>
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Savannah Nguyen</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <button type="button">
+                  <img src="assets/icons/more.svg" alt="Employee More Icons" />
+                </button>
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Ralph Edwards</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <button type="button">
+                  <img src="assets/icons/more.svg" alt="Employee More Icons" />
+                </button>
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Guy Hawkins</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <button type="button">
+                  <img src="assets/icons/more.svg" alt="Employee More Icons" />
+                </button>
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Guy Hawkins</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <button type="button">
+                  <img src="assets/icons/more.svg" alt="Employee More Icons" />
+                </button>
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Syafie Muhammad</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <button type="button">
+                  <img src="assets/icons/more.svg" alt="Employee More Icons" />
+                </button>
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Savannah Nguyen</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <button type="button">
+                  <img src="assets/icons/more.svg" alt="Employee More Icons" />
+                </button>
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Ralph Edwards</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <button type="button">
+                  <img src="assets/icons/more.svg" alt="Employee More Icons" />
+                </button>
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Guy Hawkins</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <button type="button">
+                  <img src="assets/icons/more.svg" alt="Employee More Icons" />
+                </button>
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Guy Hawkins</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <button type="button">
+                  <img src="assets/icons/more.svg" alt="Employee More Icons" />
+                </button>
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+          </div>
+          <!-- End Content - Grid Page -->
         </section>
-        <!-- End Content -->
+        <!-- End Wrapper -->
       </main>
     </div>
   </body>
