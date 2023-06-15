@@ -421,7 +421,30 @@
             </div>
             <!-- End Import Modal -->
           </div>
-          <button type="button">Bulk Action</button>
+          <div
+            x-data="{ isDropdownOpen: false }"
+            @click.outside="isDropdownOpen = false"
+            class="relative"
+          >
+            <button type="button" @click="isDropdownOpen = !isDropdownOpen">
+              Bulk Action
+            </button>
+
+            <!-- Bulk Action Dropdown -->
+            <ul
+              x-show="isDropdownOpen"
+              x-cloak
+              x-transition.opacity
+              class="absolute -left-[50%] top-[150%] flex min-w-[150px] flex-col items-center justify-center gap-4 rounded-3xl border border-[#EEEEEE] bg-white px-5 py-6 text-end text-xs font-semibold shadow-lg"
+            >
+              <form action="#">
+                <button type="submit" class="text-[#B93F61]">
+                  Delete Karyawan
+                </button>
+              </form>
+            </ul>
+            <!-- End Bulk Action Dropdown -->
+          </div>
           <a href="#">Tambah Karyawan</a>
         </div>
         <!-- Page Actions -->
