@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Urbanist:wght@500;600;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Urbanist:wght@400;500;600;800&display=swap"
       rel="stylesheet"
     />
 
@@ -26,10 +26,10 @@
     <!-- AlpineJS -->
     <script defer src="https://unpkg.com/alpinejs"></script>
   </head>
-  <body>
+  <body class="overflow-x-hidden">
     <nav
       id="sidebar"
-      class="fixed left-0 top-0 flex h-screen w-[25vw] flex-col overflow-scroll rounded-r-2xl bg-[#222A3C] p-4 text-sm text-white xl:w-[20vw] 2xl:w-[15vw]"
+      class="fixed left-0 top-0 flex h-screen w-[25vw] flex-col overflow-x-hidden overflow-y-scroll rounded-r-2xl bg-[#222A3C] p-4 text-sm text-white xl:w-[20vw] 2xl:w-[15vw]"
     >
       <div class="relative z-10 my-6 flex items-center justify-center">
         <!-- Logo -->
@@ -341,7 +341,198 @@
         <div class="flex items-center gap-8 text-sm font-bold">
           <a class="text-[#216FED]" href="#">Grid</a>
           <a href="#">List</a>
-          <button type="button">Filter</button>
+          <div x-data="{ isModalOpen: false }">
+            <button @click="isModalOpen = true" type="button">Filter</button>
+
+            <!-- Filter Modal -->
+            <div
+              class="fixed left-0 top-0 z-10 flex h-screen w-full items-center justify-center bg-black/50 font-normal"
+              role="dialog"
+              tabindex="-1"
+              x-show="isModalOpen"
+              x-cloak
+            >
+              <div
+                class="mx-4 w-full max-w-xl rounded-3xl border border-[#EEEEEE] bg-white px-5 py-6"
+                x-show="isModalOpen"
+                x-transition
+                @click.outside="isModalOpen = false"
+              >
+                <h3 class="text-2xl font-bold">Filter</h3>
+
+                <hr class="my-8" />
+
+                <form action="#" class="mt-6 grid gap-6">
+                  <div class="grid max-h-[50vh] gap-6 overflow-y-scroll">
+                    <div class="grid gap-4">
+                      <label class="text-sm font-semibold">
+                        Status Karyawan
+                      </label>
+
+                      <div
+                        class="grid grid-cols-2 gap-2 font-urbanist text-sm sm:grid-cols-4"
+                      >
+                        <div class="space-x-3">
+                          <input
+                            type="radio"
+                            name="employee_status"
+                            id="Semua"
+                            value="Semua"
+                          />
+                          <label for="Semua">Semua</label>
+                        </div>
+
+                        <div class="space-x-3">
+                          <input
+                            type="radio"
+                            name="employee_status"
+                            id="Magang"
+                            value="Magang"
+                          />
+                          <label for="Magang">Magang</label>
+                        </div>
+
+                        <div class="space-x-3">
+                          <input
+                            type="radio"
+                            name="employee_status"
+                            id="Freelance"
+                            value="Freelance"
+                          />
+                          <label for="Freelance">Freelance</label>
+                        </div>
+
+                        <div class="space-x-3">
+                          <input
+                            type="radio"
+                            name="employee_status"
+                            id="Tetap"
+                            value="Tetap"
+                          />
+                          <label for="Tetap">Tetap</label>
+                        </div>
+
+                        <div class="space-x-3">
+                          <input
+                            type="radio"
+                            name="employee_status"
+                            id="Kontrak"
+                            value="Kontrak"
+                          />
+                          <label for="Kontrak">Kontrak</label>
+                        </div>
+
+                        <div class="space-x-3">
+                          <input
+                            type="radio"
+                            name="employee_status"
+                            id="Harian Lepas"
+                            value="Harian Lepas"
+                          />
+                          <label for="Harian Lepas">Harian Lepas</label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="grid gap-4">
+                      <label for="area" class="text-sm font-semibold">
+                        Area
+                      </label>
+
+                      <select
+                        name="area"
+                        id="area"
+                        class="rounded-xl border border-[#EEEEEE] bg-white px-[18px] py-3 text-xs text-[#848484]"
+                      >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                      </select>
+                    </div>
+
+                    <div class="grid gap-4">
+                      <label for="lokasi" class="text-sm font-semibold">
+                        Lokasi Kantor
+                      </label>
+
+                      <select
+                        name="lokasi"
+                        id="lokasi"
+                        class="rounded-xl border border-[#EEEEEE] bg-white px-[18px] py-3 text-xs text-[#848484]"
+                      >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                      </select>
+                    </div>
+
+                    <div class="grid gap-4">
+                      <label for="divisi" class="text-sm font-semibold">
+                        Divisi
+                      </label>
+
+                      <select
+                        name="divisi"
+                        id="divisi"
+                        class="rounded-xl border border-[#EEEEEE] bg-white px-[18px] py-3 text-xs text-[#848484]"
+                      >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                      </select>
+                    </div>
+
+                    <div class="grid gap-4">
+                      <label for="jabatan" class="text-sm font-semibold">
+                        Jabatan
+                      </label>
+
+                      <select
+                        name="jabatan"
+                        id="jabatan"
+                        class="rounded-xl border border-[#EEEEEE] bg-white px-[18px] py-3 text-xs text-[#848484]"
+                      >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                      </select>
+                    </div>
+
+                    <div class="grid gap-4">
+                      <label for="nama" class="text-sm font-semibold">
+                        Nama Karyawan
+                      </label>
+
+                      <select
+                        name="nama"
+                        id="nama"
+                        class="rounded-xl border border-[#EEEEEE] bg-white px-[18px] py-3 text-xs text-[#848484]"
+                      >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <hr />
+
+                  <div class="mt-4 flex justify-end gap-4">
+                    <button
+                      @click="isModalOpen = false"
+                      type="button"
+                      class="rounded-full border border-[#EEEEEE] px-8 py-5 font-urbanist text-sm font-extrabold"
+                    >
+                      CANCEL
+                    </button>
+
+                    <button
+                      type="submit"
+                      class="flex items-center gap-4 rounded-full bg-[#216FED] px-8 py-5 text-sm font-extrabold text-white"
+                    >
+                      APPLY FILTER
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!-- End Filter Modal -->
+          </div>
           <a href="#">Export</a>
           <div x-data="{ isModalOpen: false }">
             <button @click="isModalOpen = true" type="button">Import</button>
@@ -382,18 +573,23 @@
                   </div>
                 </div>
 
-                <form action="#" class="mt-6 flex flex-col gap-4">
-                  <label for="file" class="font-urbanist text-sm font-semibold">
-                    Upload XLS
-                    <span class="text-[#B93F61]">*</span>
-                  </label>
+                <form action="#" class="mt-6 grid gap-6">
+                  <div class="grid gap-4">
+                    <label
+                      for="file"
+                      class="font-urbanist text-sm font-semibold"
+                    >
+                      Upload XLS
+                      <span class="text-[#B93F61]">*</span>
+                    </label>
 
-                  <input
-                    type="file"
-                    name="file"
-                    id="file"
-                    class="rounded-xl border border-[#EEEEEE] px-[18px] py-3 text-xs text-[#848484]"
-                  />
+                    <input
+                      type="file"
+                      name="file"
+                      id="file"
+                      class="rounded-xl border border-[#EEEEEE] bg-white px-[18px] py-3 text-xs text-[#848484]"
+                    />
+                  </div>
 
                   <div class="mt-4 flex justify-end gap-4">
                     <button
