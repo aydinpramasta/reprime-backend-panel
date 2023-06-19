@@ -29,7 +29,7 @@
   <body class="overflow-x-hidden">
     <nav
       id="sidebar"
-      class="fixed left-0 top-0 flex h-screen w-[25vw] flex-col overflow-x-hidden overflow-y-scroll rounded-r-2xl bg-[#222A3C] p-4 text-sm text-white xl:w-[20vw] 2xl:w-[15vw]"
+      class="fixed left-0 top-0 flex h-screen w-[25vw] flex-col overflow-y-auto overflow-x-hidden rounded-r-2xl bg-[#222A3C] p-4 text-sm text-white xl:w-[20vw] 2xl:w-[15vw]"
     >
       <div class="relative z-10 my-6 flex items-center justify-center">
         <!-- Logo -->
@@ -652,35 +652,37 @@
         <!-- Main -->
         <div class="space-y-6 rounded-[30px] bg-white p-6 text-sm">
           <!-- Menu -->
-          <div
-            class="flex w-fit gap-0.5 rounded-full bg-[#EEEEEE] p-0.5 text-white"
-          >
-            <button
-              class="rounded-full bg-[#131B2D] px-5 py-3 text-white transition duration-300 hover:bg-white hover:text-[#131B2D]"
+          <div class="overflow-x-auto pb-4 sm:pb-0">
+            <div
+              class="flex w-fit gap-0.5 rounded-full bg-[#EEEEEE] p-0.5 text-white"
             >
-              Area
-            </button>
-            <button
-              class="rounded-full px-5 py-3 text-[#848484] transition duration-300 hover:bg-white"
-            >
-              Lokasi
-            </button>
-            <button
-              class="rounded-full px-5 py-3 text-[#848484] transition duration-300 hover:bg-white"
-            >
-              Kantor
-            </button>
-            <button
-              class="rounded-full px-5 py-3 text-[#848484] transition duration-300 hover:bg-white"
-            >
-              Divisi
-            </button>
+              <button
+                class="rounded-full bg-[#131B2D] px-5 py-3 text-white transition duration-300 hover:bg-white hover:text-[#131B2D]"
+              >
+                Area
+              </button>
+              <button
+                class="rounded-full px-5 py-3 text-[#848484] transition duration-300 hover:bg-white"
+              >
+                Lokasi
+              </button>
+              <button
+                class="rounded-full px-5 py-3 text-[#848484] transition duration-300 hover:bg-white"
+              >
+                Kantor
+              </button>
+              <button
+                class="rounded-full px-5 py-3 text-[#848484] transition duration-300 hover:bg-white"
+              >
+                Divisi
+              </button>
+            </div>
           </div>
           <!-- End Menu -->
 
           <!-- Statistics -->
           <div
-            class="flex w-full gap-4 overflow-scroll whitespace-nowrap pb-4 font-urbanist text-white 2xl:pb-0"
+            class="flex w-full gap-4 overflow-x-auto whitespace-nowrap pb-4 font-urbanist text-white 2xl:pb-0"
           >
             <div
               class="flex items-center gap-3 rounded-full bg-[#62C451] px-7 py-2"
