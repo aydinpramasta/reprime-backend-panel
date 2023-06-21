@@ -33,7 +33,7 @@
         'w-[250px] lg:w-[25vw] xl:w-[20vw] 2xl:w-[15vw]': isSidebarOpen === true,
         'w-[100px]': isSidebarOpen === false,
       }"
-      class="fixed left-0 top-0 z-50 flex h-screen flex-col overflow-y-auto overflow-x-hidden rounded-r-2xl bg-[#222A3C] p-4 text-sm text-white transition-all duration-500"
+      class="fixed left-0 top-0 z-40 flex h-screen flex-col overflow-y-auto overflow-x-hidden rounded-r-2xl bg-[#222A3C] p-4 text-sm text-white transition-all duration-500"
     >
       <div class="relative z-10 my-6 flex items-center justify-center">
         <!-- Logo -->
@@ -373,7 +373,7 @@
 
             <!-- Filter Modal -->
             <div
-              class="fixed left-0 top-0 z-10 flex h-screen w-full items-center justify-center bg-black/50 font-normal"
+              class="fixed left-0 top-0 z-50 flex h-screen w-full items-center justify-center bg-black/50 font-normal"
               role="dialog"
               tabindex="-1"
               x-show="isModalOpen"
@@ -566,7 +566,7 @@
 
             <!-- Import Modal -->
             <div
-              class="fixed left-0 top-0 z-10 flex h-screen w-full items-center justify-center bg-black/50 font-normal"
+              class="fixed left-0 top-0 z-50 flex h-screen w-full items-center justify-center bg-black/50 font-normal"
               role="dialog"
               tabindex="-1"
               x-show="isModalOpen"
