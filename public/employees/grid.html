@@ -21,7 +21,7 @@
     />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/style.css" />
 
     <!-- AlpineJS -->
     <script defer src="https://unpkg.com/alpinejs"></script>
@@ -40,7 +40,7 @@
         <a href="#" class="mr-8 flex gap-3">
           <img
             class="w-[30px]"
-            src="assets/reprime_logo.svg"
+            src="/assets/reprime_logo.svg"
             alt="Logo Reprime"
           />
           <h1
@@ -59,7 +59,7 @@
         >
           <img
             class="w-[25px]"
-            src="assets/icons/menu-1.svg"
+            src="/assets/icons/menu-1.svg"
             alt="Sidebar Hamburger Icon"
           />
         </button>
@@ -82,7 +82,7 @@
             <div class="flex items-center gap-4">
               <img
                 class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
-                src="assets/icons/element-2.svg"
+                src="/assets/icons/element-2.svg"
                 alt="Sidebar Dashboard Icon"
               />
 
@@ -106,7 +106,7 @@
               <div class="flex items-center gap-4">
                 <img
                   class="w-[20px]"
-                  src="assets/icons/profile-2user.svg"
+                  src="/assets/icons/profile-2user.svg"
                   alt="Sidebar Employees Icon"
                 />
 
@@ -116,7 +116,7 @@
               <img
                 x-show="isSidebarOpen"
                 class="w-[20px]"
-                src="assets/icons/arrow-down-1.svg"
+                src="/assets/icons/arrow-down-1.svg"
                 alt="Sidebar Expand Icon"
               />
             </div>
@@ -149,7 +149,7 @@
               <div class="flex items-center gap-4">
                 <img
                   class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
-                  src="assets/icons/note-1.svg"
+                  src="/assets/icons/note-1.svg"
                   alt="Sidebar Presences Icon"
                 />
 
@@ -159,7 +159,7 @@
               <img
                 x-show="isSidebarOpen"
                 class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
-                src="assets/icons/arrow-down-1.svg"
+                src="/assets/icons/arrow-down-1.svg"
                 alt="Sidebar Expand Icon"
               />
             </div>
@@ -185,7 +185,7 @@
               <div class="flex items-center gap-4">
                 <img
                   class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
-                  src="assets/icons/task-square.svg"
+                  src="/assets/icons/task-square.svg"
                   alt="Sidebar Performance Icon"
                 />
 
@@ -195,7 +195,7 @@
               <img
                 x-show="isSidebarOpen"
                 class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
-                src="assets/icons/arrow-down-1.svg"
+                src="/assets/icons/arrow-down-1.svg"
                 alt="Sidebar Expand Icon"
               />
             </div>
@@ -220,7 +220,7 @@
             <div class="flex items-center gap-4">
               <img
                 class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
-                src="assets/icons/wallet-3.svg"
+                src="/assets/icons/wallet-3.svg"
                 alt="Sidebar Finance Icon"
               />
 
@@ -242,7 +242,7 @@
               <div class="flex items-center gap-4">
                 <img
                   class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
-                  src="assets/icons/clipboard-text.svg"
+                  src="/assets/icons/clipboard-text.svg"
                   alt="Sidebar Task Icon"
                 />
 
@@ -252,7 +252,7 @@
               <img
                 x-show="isSidebarOpen"
                 class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
-                src="assets/icons/arrow-down-1.svg"
+                src="/assets/icons/arrow-down-1.svg"
                 alt="Sidebar Expand Icon"
               />
             </div>
@@ -280,7 +280,7 @@
             <div class="flex items-center gap-4">
               <img
                 class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
-                src="assets/icons/setting-2.svg"
+                src="/assets/icons/setting-2.svg"
                 alt="Sidebar Settings Icon"
               />
 
@@ -304,7 +304,7 @@
           <a href="#" class="flex items-center gap-3">
             <img
               class="w-[15px] invert"
-              src="assets/icons/clock.svg"
+              src="/assets/icons/clock.svg"
               alt="Sidebar History Icon"
             />
             <span x-show="isSidebarOpen">History</span>
@@ -313,7 +313,7 @@
           <a href="#" class="flex items-center gap-3">
             <img
               class="w-[15px] invert"
-              src="assets/icons/layer.svg"
+              src="/assets/icons/layer.svg"
               alt="Sidebar Update Icon"
             />
             <span x-show="isSidebarOpen">Update</span>
@@ -325,7 +325,7 @@
       <!-- Illustration -->
       <img
         class="absolute bottom-0 left-0 w-full min-w-[300px]"
-        src="assets/sidebar_illustration.svg"
+        src="/assets/sidebar_illustration.svg"
         alt="Sidebar Illustration"
       />
       <!-- End Illustration -->
@@ -339,8 +339,11 @@
       class="transition-all duration-500"
     >
       <!-- Topbar -->
-      <div id="topbar" class="flex items-center justify-between px-6 py-2">
-        <span class="font-semibold">Karyawan</span>
+      <div
+        id="topbar"
+        class="flex items-center justify-between gap-4 px-6 py-2"
+      >
+        <span class="hidden font-semibold xl:block">Karyawan</span>
 
         <!-- Search Form -->
         <form
@@ -349,7 +352,7 @@
           <button type="submit">
             <img
               class="w-[20px]"
-              src="assets/icons/search-normal-1.svg"
+              src="/assets/icons/search-normal-1.svg"
               alt="Search Icon"
             />
           </button>
@@ -587,7 +590,7 @@
                 >
                   <img
                     class="w-[35px]"
-                    src="assets/icons/lamp-on.svg"
+                    src="/assets/icons/lamp-on.svg"
                     alt="Import Modal Lamp Icon"
                   />
 
@@ -633,7 +636,7 @@
                     >
                       <img
                         class="w-[20px]"
-                        src="assets/icons/import-1.svg"
+                        src="/assets/icons/import-1.svg"
                         alt="Import Modal Import Icon"
                       />
                       IMPORT
@@ -772,7 +775,7 @@
                 <div class="flex items-start gap-3">
                   <img
                     class="w-[30px] rounded-full"
-                    src="assets/avatar_placeholder.png"
+                    src="/assets/avatar_placeholder.png"
                     alt="Employee Avatar"
                   />
 
@@ -793,7 +796,7 @@
                     @click="isDropdownOpen = !isDropdownOpen"
                   >
                     <img
-                      src="assets/icons/more.svg"
+                      src="/assets/icons/more.svg"
                       alt="Employee More Icons"
                     />
                   </button>
@@ -855,7 +858,7 @@
                   >
                   <img
                     class="w-[25px] text-sm text-[#848484]"
-                    src="assets/icons/arrow-right.svg"
+                    src="/assets/icons/arrow-right.svg"
                   />
                 </a>
               </div>
@@ -872,7 +875,7 @@
                 <div class="flex items-start gap-3">
                   <img
                     class="w-[30px] rounded-full"
-                    src="assets/avatar_placeholder.png"
+                    src="/assets/avatar_placeholder.png"
                     alt="Employee Avatar"
                   />
 
@@ -893,7 +896,7 @@
                     @click="isDropdownOpen = !isDropdownOpen"
                   >
                     <img
-                      src="assets/icons/more.svg"
+                      src="/assets/icons/more.svg"
                       alt="Employee More Icons"
                     />
                   </button>
@@ -955,7 +958,7 @@
                   >
                   <img
                     class="w-[25px] text-sm text-[#848484]"
-                    src="assets/icons/arrow-right.svg"
+                    src="/assets/icons/arrow-right.svg"
                   />
                 </a>
               </div>
@@ -972,7 +975,7 @@
                 <div class="flex items-start gap-3">
                   <img
                     class="w-[30px] rounded-full"
-                    src="assets/avatar_placeholder.png"
+                    src="/assets/avatar_placeholder.png"
                     alt="Employee Avatar"
                   />
 
@@ -993,7 +996,7 @@
                     @click="isDropdownOpen = !isDropdownOpen"
                   >
                     <img
-                      src="assets/icons/more.svg"
+                      src="/assets/icons/more.svg"
                       alt="Employee More Icons"
                     />
                   </button>
@@ -1055,7 +1058,7 @@
                   >
                   <img
                     class="w-[25px] text-sm text-[#848484]"
-                    src="assets/icons/arrow-right.svg"
+                    src="/assets/icons/arrow-right.svg"
                   />
                 </a>
               </div>
@@ -1072,7 +1075,7 @@
                 <div class="flex items-start gap-3">
                   <img
                     class="w-[30px] rounded-full"
-                    src="assets/avatar_placeholder.png"
+                    src="/assets/avatar_placeholder.png"
                     alt="Employee Avatar"
                   />
 
@@ -1093,7 +1096,7 @@
                     @click="isDropdownOpen = !isDropdownOpen"
                   >
                     <img
-                      src="assets/icons/more.svg"
+                      src="/assets/icons/more.svg"
                       alt="Employee More Icons"
                     />
                   </button>
@@ -1155,7 +1158,7 @@
                   >
                   <img
                     class="w-[25px] text-sm text-[#848484]"
-                    src="assets/icons/arrow-right.svg"
+                    src="/assets/icons/arrow-right.svg"
                   />
                 </a>
               </div>
@@ -1172,7 +1175,7 @@
                 <div class="flex items-start gap-3">
                   <img
                     class="w-[30px] rounded-full"
-                    src="assets/avatar_placeholder.png"
+                    src="/assets/avatar_placeholder.png"
                     alt="Employee Avatar"
                   />
 
@@ -1193,7 +1196,7 @@
                     @click="isDropdownOpen = !isDropdownOpen"
                   >
                     <img
-                      src="assets/icons/more.svg"
+                      src="/assets/icons/more.svg"
                       alt="Employee More Icons"
                     />
                   </button>
@@ -1255,7 +1258,7 @@
                   >
                   <img
                     class="w-[25px] text-sm text-[#848484]"
-                    src="assets/icons/arrow-right.svg"
+                    src="/assets/icons/arrow-right.svg"
                   />
                 </a>
               </div>
@@ -1272,7 +1275,7 @@
                 <div class="flex items-start gap-3">
                   <img
                     class="w-[30px] rounded-full"
-                    src="assets/avatar_placeholder.png"
+                    src="/assets/avatar_placeholder.png"
                     alt="Employee Avatar"
                   />
 
@@ -1293,7 +1296,7 @@
                     @click="isDropdownOpen = !isDropdownOpen"
                   >
                     <img
-                      src="assets/icons/more.svg"
+                      src="/assets/icons/more.svg"
                       alt="Employee More Icons"
                     />
                   </button>
@@ -1355,7 +1358,7 @@
                   >
                   <img
                     class="w-[25px] text-sm text-[#848484]"
-                    src="assets/icons/arrow-right.svg"
+                    src="/assets/icons/arrow-right.svg"
                   />
                 </a>
               </div>
@@ -1372,7 +1375,7 @@
                 <div class="flex items-start gap-3">
                   <img
                     class="w-[30px] rounded-full"
-                    src="assets/avatar_placeholder.png"
+                    src="/assets/avatar_placeholder.png"
                     alt="Employee Avatar"
                   />
 
@@ -1393,7 +1396,7 @@
                     @click="isDropdownOpen = !isDropdownOpen"
                   >
                     <img
-                      src="assets/icons/more.svg"
+                      src="/assets/icons/more.svg"
                       alt="Employee More Icons"
                     />
                   </button>
@@ -1455,7 +1458,7 @@
                   >
                   <img
                     class="w-[25px] text-sm text-[#848484]"
-                    src="assets/icons/arrow-right.svg"
+                    src="/assets/icons/arrow-right.svg"
                   />
                 </a>
               </div>
@@ -1472,7 +1475,7 @@
                 <div class="flex items-start gap-3">
                   <img
                     class="w-[30px] rounded-full"
-                    src="assets/avatar_placeholder.png"
+                    src="/assets/avatar_placeholder.png"
                     alt="Employee Avatar"
                   />
 
@@ -1493,7 +1496,7 @@
                     @click="isDropdownOpen = !isDropdownOpen"
                   >
                     <img
-                      src="assets/icons/more.svg"
+                      src="/assets/icons/more.svg"
                       alt="Employee More Icons"
                     />
                   </button>
@@ -1555,7 +1558,7 @@
                   >
                   <img
                     class="w-[25px] text-sm text-[#848484]"
-                    src="assets/icons/arrow-right.svg"
+                    src="/assets/icons/arrow-right.svg"
                   />
                 </a>
               </div>
@@ -1572,7 +1575,7 @@
                 <div class="flex items-start gap-3">
                   <img
                     class="w-[30px] rounded-full"
-                    src="assets/avatar_placeholder.png"
+                    src="/assets/avatar_placeholder.png"
                     alt="Employee Avatar"
                   />
 
@@ -1593,7 +1596,7 @@
                     @click="isDropdownOpen = !isDropdownOpen"
                   >
                     <img
-                      src="assets/icons/more.svg"
+                      src="/assets/icons/more.svg"
                       alt="Employee More Icons"
                     />
                   </button>
@@ -1655,7 +1658,7 @@
                   >
                   <img
                     class="w-[25px] text-sm text-[#848484]"
-                    src="assets/icons/arrow-right.svg"
+                    src="/assets/icons/arrow-right.svg"
                   />
                 </a>
               </div>
@@ -1672,7 +1675,7 @@
                 <div class="flex items-start gap-3">
                   <img
                     class="w-[30px] rounded-full"
-                    src="assets/avatar_placeholder.png"
+                    src="/assets/avatar_placeholder.png"
                     alt="Employee Avatar"
                   />
 
@@ -1693,7 +1696,7 @@
                     @click="isDropdownOpen = !isDropdownOpen"
                   >
                     <img
-                      src="assets/icons/more.svg"
+                      src="/assets/icons/more.svg"
                       alt="Employee More Icons"
                     />
                   </button>
@@ -1755,7 +1758,7 @@
                   >
                   <img
                     class="w-[25px] text-sm text-[#848484]"
-                    src="assets/icons/arrow-right.svg"
+                    src="/assets/icons/arrow-right.svg"
                   />
                 </a>
               </div>
@@ -1772,7 +1775,7 @@
                 <div class="flex items-start gap-3">
                   <img
                     class="w-[30px] rounded-full"
-                    src="assets/avatar_placeholder.png"
+                    src="/assets/avatar_placeholder.png"
                     alt="Employee Avatar"
                   />
 
@@ -1793,7 +1796,7 @@
                     @click="isDropdownOpen = !isDropdownOpen"
                   >
                     <img
-                      src="assets/icons/more.svg"
+                      src="/assets/icons/more.svg"
                       alt="Employee More Icons"
                     />
                   </button>
@@ -1855,7 +1858,7 @@
                   >
                   <img
                     class="w-[25px] text-sm text-[#848484]"
-                    src="assets/icons/arrow-right.svg"
+                    src="/assets/icons/arrow-right.svg"
                   />
                 </a>
               </div>
@@ -1872,7 +1875,7 @@
                 <div class="flex items-start gap-3">
                   <img
                     class="w-[30px] rounded-full"
-                    src="assets/avatar_placeholder.png"
+                    src="/assets/avatar_placeholder.png"
                     alt="Employee Avatar"
                   />
 
@@ -1893,7 +1896,7 @@
                     @click="isDropdownOpen = !isDropdownOpen"
                   >
                     <img
-                      src="assets/icons/more.svg"
+                      src="/assets/icons/more.svg"
                       alt="Employee More Icons"
                     />
                   </button>
@@ -1955,7 +1958,7 @@
                   >
                   <img
                     class="w-[25px] text-sm text-[#848484]"
-                    src="assets/icons/arrow-right.svg"
+                    src="/assets/icons/arrow-right.svg"
                   />
                 </a>
               </div>
@@ -1972,7 +1975,7 @@
                 <div class="flex items-start gap-3">
                   <img
                     class="w-[30px] rounded-full"
-                    src="assets/avatar_placeholder.png"
+                    src="/assets/avatar_placeholder.png"
                     alt="Employee Avatar"
                   />
 
@@ -1993,7 +1996,7 @@
                     @click="isDropdownOpen = !isDropdownOpen"
                   >
                     <img
-                      src="assets/icons/more.svg"
+                      src="/assets/icons/more.svg"
                       alt="Employee More Icons"
                     />
                   </button>
@@ -2055,7 +2058,7 @@
                   >
                   <img
                     class="w-[25px] text-sm text-[#848484]"
-                    src="assets/icons/arrow-right.svg"
+                    src="/assets/icons/arrow-right.svg"
                   />
                 </a>
               </div>
@@ -2072,7 +2075,7 @@
                 <div class="flex items-start gap-3">
                   <img
                     class="w-[30px] rounded-full"
-                    src="assets/avatar_placeholder.png"
+                    src="/assets/avatar_placeholder.png"
                     alt="Employee Avatar"
                   />
 
@@ -2093,7 +2096,7 @@
                     @click="isDropdownOpen = !isDropdownOpen"
                   >
                     <img
-                      src="assets/icons/more.svg"
+                      src="/assets/icons/more.svg"
                       alt="Employee More Icons"
                     />
                   </button>
@@ -2155,7 +2158,7 @@
                   >
                   <img
                     class="w-[25px] text-sm text-[#848484]"
-                    src="assets/icons/arrow-right.svg"
+                    src="/assets/icons/arrow-right.svg"
                   />
                 </a>
               </div>
@@ -2172,7 +2175,7 @@
                 <div class="flex items-start gap-3">
                   <img
                     class="w-[30px] rounded-full"
-                    src="assets/avatar_placeholder.png"
+                    src="/assets/avatar_placeholder.png"
                     alt="Employee Avatar"
                   />
 
@@ -2193,7 +2196,7 @@
                     @click="isDropdownOpen = !isDropdownOpen"
                   >
                     <img
-                      src="assets/icons/more.svg"
+                      src="/assets/icons/more.svg"
                       alt="Employee More Icons"
                     />
                   </button>
@@ -2255,7 +2258,7 @@
                   >
                   <img
                     class="w-[25px] text-sm text-[#848484]"
-                    src="assets/icons/arrow-right.svg"
+                    src="/assets/icons/arrow-right.svg"
                   />
                 </a>
               </div>
@@ -2273,14 +2276,14 @@
               <a href="#" class="rounded-full bg-[#F6F6F6] p-2">
                 <img
                   class="w-[20px] opacity-75"
-                  src="assets/icons/arrow-left.svg"
+                  src="/assets/icons/arrow-left.svg"
                   alt="Pagination Previous"
                 />
               </a>
               <a href="#" class="rounded-full bg-[#F6F6F6] p-2">
                 <img
                   class="w-[20px] opacity-75"
-                  src="assets/icons/arrow-right-1.svg"
+                  src="/assets/icons/arrow-right-1.svg"
                   alt="Pagination Next"
                 />
               </a>
