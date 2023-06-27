@@ -26,7 +26,7 @@
   <body class="overflow-x-hidden">
     <nav
       id="sidebar"
-      class="fixed left-0 top-0 z-40 flex h-screen flex-col overflow-y-auto overflow-x-hidden rounded-r-2xl bg-[#222A3C] p-4 text-sm text-white lg:w-[25vw] xl:w-[20vw] 2xl:w-[15vw]"
+      class="fixed z-40 float-left hidden h-screen w-[15vw] flex-col overflow-y-auto overflow-x-hidden rounded-r-2xl bg-[#222A3C] p-4 text-sm text-white xl:flex"
     >
       <div class="relative z-10 my-6 flex items-center justify-center">
         <!-- Logo -->
@@ -280,9 +280,7 @@
       <!-- End Illustration -->
     </nav>
 
-    <main
-      class="transition-all duration-500 lg:ml-[25vw] lg:w-[75vw] xl:ml-[20vw] xl:w-[80vw] 2xl:ml-[15vw] 2xl:w-[85vw]"
-    >
+    <main class="float-right w-full xl:w-[85vw]">
       <!-- Topbar -->
       <div
         id="topbar"
