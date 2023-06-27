@@ -22,18 +22,11 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/style.css" />
-
-    <!-- AlpineJS -->
-    <script defer src="https://unpkg.com/alpinejs"></script>
   </head>
-  <body x-data="{ isSidebarOpen: true }" class="overflow-x-hidden">
+  <body class="overflow-x-hidden">
     <nav
       id="sidebar"
-      :class="{
-        'w-[250px] lg:w-[25vw] xl:w-[20vw] 2xl:w-[15vw]': isSidebarOpen === true,
-        'w-[100px]': isSidebarOpen === false,
-      }"
-      class="fixed left-0 top-0 z-40 flex h-screen flex-col overflow-y-auto overflow-x-hidden rounded-r-2xl bg-[#222A3C] p-4 text-sm text-white transition-all duration-500"
+      class="fixed left-0 top-0 z-40 flex h-screen flex-col overflow-y-auto overflow-x-hidden rounded-r-2xl bg-[#222A3C] p-4 text-sm text-white lg:w-[25vw] xl:w-[20vw] 2xl:w-[15vw]"
     >
       <div class="relative z-10 my-6 flex items-center justify-center">
         <!-- Logo -->
@@ -43,10 +36,7 @@
             src="/assets/reprime_logo.svg"
             alt="Logo Reprime"
           />
-          <h1
-            x-show="isSidebarOpen"
-            class="font-logo text-xl font-semibold tracking-wider"
-          >
+          <h1 class="font-logo text-xl font-semibold tracking-wider">
             REPRIME
           </h1>
         </a>
@@ -54,7 +44,6 @@
 
         <!-- Sidebar Toggle Button -->
         <button
-          @click="isSidebarOpen = !isSidebarOpen"
           class="absolute -right-4 rounded-l-xl border border-[#EEEEEE] bg-white px-1 py-3"
         >
           <img
@@ -332,11 +321,7 @@
     </nav>
 
     <main
-      :class="{
-        'ml-[100px] lg:ml-[25vw] lg:w-[75vw] xl:ml-[20vw] xl:w-[80vw] 2xl:ml-[15vw] 2xl:w-[85vw]': isSidebarOpen === true,
-        'ml-[100px]': isSidebarOpen === false,
-      }"
-      class="transition-all duration-500"
+      class="transition-all duration-500 lg:ml-[25vw] lg:w-[75vw] xl:ml-[20vw] xl:w-[80vw] 2xl:ml-[15vw] 2xl:w-[85vw]"
     >
       <!-- Topbar -->
       <div
