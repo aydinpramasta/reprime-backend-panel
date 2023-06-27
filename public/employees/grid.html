@@ -64,8 +64,7 @@
         <!-- Single Inactive Nav Item -->
         <a
           href="#"
-          :class="{ 'hover:px-7': isSidebarOpen === true }"
-          class="group rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:text-black hover:opacity-100"
+          class="group rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:px-7 hover:text-black hover:opacity-100"
         >
           <div class="flex justify-between">
             <div class="flex items-center gap-4">
@@ -75,22 +74,15 @@
                 alt="Sidebar Dashboard Icon"
               />
 
-              <span x-show="isSidebarOpen">Dashboard</span>
+              <span>Dashboard</span>
             </div>
           </div>
         </a>
         <!-- End Single Inactive Nav Item -->
 
         <!-- Multilevel Active Nav Item -->
-        <div x-data="{ open: true }" class="rounded-xl bg-white text-black">
-          <button
-            @click="open = !open"
-            :class="{
-              'px-7': isSidebarOpen === true,
-              'px-4': isSidebarOpen === false,
-            }"
-            class="group w-full rounded-xl bg-[#F6F6F6] py-3"
-          >
+        <div class="rounded-xl bg-white text-black">
+          <button class="group w-full rounded-xl bg-[#F6F6F6] px-7 py-3">
             <div class="flex justify-between">
               <div class="flex items-center gap-4">
                 <img
@@ -99,11 +91,10 @@
                   alt="Sidebar Employees Icon"
                 />
 
-                <span x-show="isSidebarOpen">Karyawan</span>
+                <span>Karyawan</span>
               </div>
 
               <img
-                x-show="isSidebarOpen"
                 class="w-[20px]"
                 src="/assets/icons/arrow-down-1.svg"
                 alt="Sidebar Expand Icon"
@@ -111,12 +102,7 @@
             </div>
           </button>
 
-          <div
-            x-cloak
-            x-show="open && isSidebarOpen"
-            x-transition.duration.300ms
-            class="m-6 flex flex-col gap-4"
-          >
+          <div class="m-6 flex flex-col gap-4">
             <a href="#" class="font-semibold">Data Karyawan</a>
             <a
               href="#"
@@ -128,11 +114,9 @@
         <!-- End Multilevel Active Nav Item -->
 
         <!-- Multilevel Inactive Nav Item -->
-        <div x-data="{ open: false }">
+        <div>
           <button
-            @click="open = !open"
-            :class="{ 'hover:px-7': isSidebarOpen === true }"
-            class="group w-full rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:text-black hover:opacity-100"
+            class="group w-full rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:px-7 hover:text-black hover:opacity-100"
           >
             <div class="flex justify-between">
               <div class="flex items-center gap-4">
@@ -142,11 +126,10 @@
                   alt="Sidebar Presences Icon"
                 />
 
-                <span x-show="isSidebarOpen">Kehadiran</span>
+                <span>Kehadiran</span>
               </div>
 
               <img
-                x-show="isSidebarOpen"
                 class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
                 src="/assets/icons/arrow-down-1.svg"
                 alt="Sidebar Expand Icon"
@@ -154,21 +137,14 @@
             </div>
           </button>
 
-          <div
-            x-cloak
-            x-show="open && isSidebarOpen"
-            x-transition.duration.300ms
-            class="m-6 flex flex-col gap-4"
-          ></div>
+          <!-- <div class="m-6 flex flex-col gap-4"></div> -->
         </div>
         <!-- End Multilevel Inactive Nav Item -->
 
         <!-- Multilevel Inactive Nav Item -->
-        <div x-data="{ open: false }">
+        <div>
           <button
-            :class="{ 'hover:px-7': isSidebarOpen === true }"
-            @click="open = !open"
-            class="group w-full rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:text-black hover:opacity-100"
+            class="group w-full rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:px-7 hover:text-black hover:opacity-100"
           >
             <div class="flex justify-between">
               <div class="flex items-center gap-4">
@@ -178,11 +154,10 @@
                   alt="Sidebar Performance Icon"
                 />
 
-                <span x-show="isSidebarOpen">Kinerja</span>
+                <span>Kinerja</span>
               </div>
 
               <img
-                x-show="isSidebarOpen"
                 class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
                 src="/assets/icons/arrow-down-1.svg"
                 alt="Sidebar Expand Icon"
@@ -190,20 +165,14 @@
             </div>
           </button>
 
-          <div
-            x-cloak
-            x-show="open && isSidebarOpen"
-            x-transition.duration.300ms
-            class="m-6 flex flex-col gap-4"
-          ></div>
+          <!-- <div class="m-6 flex flex-col gap-4"></div> -->
         </div>
         <!-- End Multilevel Inactive Nav Item -->
 
         <!-- Single Inactive Nav Item -->
         <a
           href="#"
-          :class="{ 'hover:px-7': isSidebarOpen === true }"
-          class="group rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:text-black hover:opacity-100"
+          class="group rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:px-7 hover:text-black hover:opacity-100"
         >
           <div class="flex justify-between">
             <div class="flex items-center gap-4">
@@ -213,19 +182,16 @@
                 alt="Sidebar Finance Icon"
               />
 
-              <span x-show="isSidebarOpen">Finance</span>
+              <span>Finance</span>
             </div>
           </div>
         </a>
         <!-- End Single Inactive Nav Item -->
 
         <!-- Multilevel Inactive Nav Item -->
-        <div x-data="{ open: false }">
+        <div>
           <button
-            x-cloak
-            @click="open = !open"
-            :class="{ 'hover:px-7': isSidebarOpen === true }"
-            class="group w-full rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:text-black hover:opacity-100"
+            class="group w-full rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:px-7 hover:text-black hover:opacity-100"
           >
             <div class="flex justify-between">
               <div class="flex items-center gap-4">
@@ -235,11 +201,10 @@
                   alt="Sidebar Task Icon"
                 />
 
-                <span x-show="isSidebarOpen">Task</span>
+                <span>Task</span>
               </div>
 
               <img
-                x-show="isSidebarOpen"
                 class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
                 src="/assets/icons/arrow-down-1.svg"
                 alt="Sidebar Expand Icon"
@@ -247,11 +212,7 @@
             </div>
           </button>
 
-          <div
-            x-show="open && isSidebarOpen"
-            x-transition.duration.300ms
-            class="m-6 flex flex-col gap-4"
-          ></div>
+          <!-- <div class="m-6 flex flex-col gap-4"></div> -->
         </div>
         <!-- End Multilevel Inactive Nav Item -->
 
@@ -262,8 +223,7 @@
         <!-- Single Inactive Nav Item -->
         <a
           href="#"
-          :class="{ 'hover:px-7': isSidebarOpen === true }"
-          class="group rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:text-black hover:opacity-100"
+          class="group rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:px-7 hover:text-black hover:opacity-100"
         >
           <div class="flex justify-between">
             <div class="flex items-center gap-4">
@@ -273,7 +233,7 @@
                 alt="Sidebar Settings Icon"
               />
 
-              <span x-show="isSidebarOpen">Pengaturan</span>
+              <span>Pengaturan</span>
             </div>
           </div>
         </a>
@@ -286,7 +246,7 @@
         class="z-10 mt-auto flex w-full flex-col gap-4 rounded-xl bg-white/[0.15] p-4 text-sm"
       >
         <div class="font-semibold">
-          <span x-show="isSidebarOpen">Storage:</span>
+          <span>Storage:</span>
           <span class="text-[#76D210]">40MB /3GB</span>
         </div>
         <div class="flex justify-between">
@@ -296,16 +256,16 @@
               src="/assets/icons/clock.svg"
               alt="Sidebar History Icon"
             />
-            <span x-show="isSidebarOpen">History</span>
+            <span>History</span>
           </a>
-          <span x-show="isSidebarOpen">|</span>
+          <span>|</span>
           <a href="#" class="flex items-center gap-3">
             <img
               class="w-[15px] invert"
               src="/assets/icons/layer.svg"
               alt="Sidebar Update Icon"
             />
-            <span x-show="isSidebarOpen">Update</span>
+            <span>Update</span>
           </a>
         </div>
       </div>
