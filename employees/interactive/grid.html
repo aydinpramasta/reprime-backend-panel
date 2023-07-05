@@ -1,0 +1,2311 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reprime Backend - Karyawan</title>
+
+    <!-- Font - Plus Jakarta Sans & Urbanist -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Urbanist:wght@400;500;600;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font - Proxima Nova -->
+    <link
+      href="https://fonts.cdnfonts.com/css/proxima-nova-2?styles=44821"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- AlpineJS -->
+    <script defer src="https://unpkg.com/alpinejs"></script>
+  </head>
+  <body x-data="{ isSidebarOpen: true }" class="overflow-x-hidden">
+    <nav
+      id="sidebar"
+      :class="{
+        'w-[250px] lg:w-[25vw] xl:w-[20vw] 2xl:w-[15vw]': isSidebarOpen === true,
+        'w-[100px]': isSidebarOpen === false,
+      }"
+      class="fixed left-0 top-0 z-40 flex h-screen flex-col overflow-y-auto overflow-x-hidden rounded-r-2xl bg-[#222A3C] p-4 text-sm text-white transition-all duration-500"
+    >
+      <div class="relative z-10 my-6 flex items-center justify-center">
+        <!-- Logo -->
+        <a href="#" class="mr-8 flex gap-3">
+          <img
+            class="w-[30px]"
+            src="/assets/reprime_logo.svg"
+            alt="Logo Reprime"
+          />
+          <h1
+            x-show="isSidebarOpen"
+            class="font-logo text-xl font-semibold tracking-wider"
+          >
+            REPRIME
+          </h1>
+        </a>
+        <!-- End Logo -->
+
+        <!-- Sidebar Toggle Button -->
+        <button
+          @click="isSidebarOpen = !isSidebarOpen"
+          class="absolute -right-4 rounded-l-xl border border-[#EEEEEE] bg-white px-1 py-3"
+        >
+          <img
+            class="w-[25px]"
+            src="/assets/icons/menu-1.svg"
+            alt="Sidebar Hamburger Icon"
+          />
+        </button>
+        <!-- End Sidebar Toggle Button -->
+      </div>
+
+      <!-- Nav Items -->
+      <div class="z-10 my-5 flex flex-col gap-5">
+        <!-- Divider -->
+        <hr class="opacity-[0.2]" />
+        <!-- End Divider -->
+
+        <!-- Single Inactive Nav Item -->
+        <a
+          href="#"
+          :class="{ 'hover:px-7': isSidebarOpen === true }"
+          class="group rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:text-black hover:opacity-100"
+        >
+          <div class="flex justify-between">
+            <div class="flex items-center gap-4">
+              <img
+                class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
+                src="/assets/icons/element-2.svg"
+                alt="Sidebar Dashboard Icon"
+              />
+
+              <span x-show="isSidebarOpen">Dashboard</span>
+            </div>
+          </div>
+        </a>
+        <!-- End Single Inactive Nav Item -->
+
+        <!-- Multilevel Active Nav Item -->
+        <div x-data="{ open: true }" class="rounded-xl bg-white text-black">
+          <button
+            @click="open = !open"
+            :class="{
+              'px-7': isSidebarOpen === true,
+              'px-4': isSidebarOpen === false,
+            }"
+            class="group w-full rounded-xl bg-[#F6F6F6] py-3"
+          >
+            <div class="flex justify-between">
+              <div class="flex items-center gap-4">
+                <img
+                  class="w-[20px]"
+                  src="/assets/icons/profile-2user.svg"
+                  alt="Sidebar Employees Icon"
+                />
+
+                <span x-show="isSidebarOpen">Karyawan</span>
+              </div>
+
+              <img
+                x-show="isSidebarOpen"
+                class="w-[20px]"
+                src="/assets/icons/arrow-down-1.svg"
+                alt="Sidebar Expand Icon"
+              />
+            </div>
+          </button>
+
+          <div
+            x-cloak
+            x-show="open && isSidebarOpen"
+            x-transition.duration.300ms
+            class="m-6 flex flex-col gap-4"
+          >
+            <a href="#" class="font-semibold">Data Karyawan</a>
+            <a
+              href="#"
+              class="opacity-75 transition-all duration-500 hover:font-semibold hover:opacity-100"
+              >Kontrak Kerja</a
+            >
+          </div>
+        </div>
+        <!-- End Multilevel Active Nav Item -->
+
+        <!-- Multilevel Inactive Nav Item -->
+        <div x-data="{ open: false }">
+          <button
+            @click="open = !open"
+            :class="{ 'hover:px-7': isSidebarOpen === true }"
+            class="group w-full rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:text-black hover:opacity-100"
+          >
+            <div class="flex justify-between">
+              <div class="flex items-center gap-4">
+                <img
+                  class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
+                  src="/assets/icons/note-1.svg"
+                  alt="Sidebar Presences Icon"
+                />
+
+                <span x-show="isSidebarOpen">Kehadiran</span>
+              </div>
+
+              <img
+                x-show="isSidebarOpen"
+                class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
+                src="/assets/icons/arrow-down-1.svg"
+                alt="Sidebar Expand Icon"
+              />
+            </div>
+          </button>
+
+          <div
+            x-cloak
+            x-show="open && isSidebarOpen"
+            x-transition.duration.300ms
+            class="m-6 flex flex-col gap-4"
+          ></div>
+        </div>
+        <!-- End Multilevel Inactive Nav Item -->
+
+        <!-- Multilevel Inactive Nav Item -->
+        <div x-data="{ open: false }">
+          <button
+            :class="{ 'hover:px-7': isSidebarOpen === true }"
+            @click="open = !open"
+            class="group w-full rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:text-black hover:opacity-100"
+          >
+            <div class="flex justify-between">
+              <div class="flex items-center gap-4">
+                <img
+                  class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
+                  src="/assets/icons/task-square.svg"
+                  alt="Sidebar Performance Icon"
+                />
+
+                <span x-show="isSidebarOpen">Kinerja</span>
+              </div>
+
+              <img
+                x-show="isSidebarOpen"
+                class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
+                src="/assets/icons/arrow-down-1.svg"
+                alt="Sidebar Expand Icon"
+              />
+            </div>
+          </button>
+
+          <div
+            x-cloak
+            x-show="open && isSidebarOpen"
+            x-transition.duration.300ms
+            class="m-6 flex flex-col gap-4"
+          ></div>
+        </div>
+        <!-- End Multilevel Inactive Nav Item -->
+
+        <!-- Single Inactive Nav Item -->
+        <a
+          href="#"
+          :class="{ 'hover:px-7': isSidebarOpen === true }"
+          class="group rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:text-black hover:opacity-100"
+        >
+          <div class="flex justify-between">
+            <div class="flex items-center gap-4">
+              <img
+                class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
+                src="/assets/icons/wallet-3.svg"
+                alt="Sidebar Finance Icon"
+              />
+
+              <span x-show="isSidebarOpen">Finance</span>
+            </div>
+          </div>
+        </a>
+        <!-- End Single Inactive Nav Item -->
+
+        <!-- Multilevel Inactive Nav Item -->
+        <div x-data="{ open: false }">
+          <button
+            x-cloak
+            @click="open = !open"
+            :class="{ 'hover:px-7': isSidebarOpen === true }"
+            class="group w-full rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:text-black hover:opacity-100"
+          >
+            <div class="flex justify-between">
+              <div class="flex items-center gap-4">
+                <img
+                  class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
+                  src="/assets/icons/clipboard-text.svg"
+                  alt="Sidebar Task Icon"
+                />
+
+                <span x-show="isSidebarOpen">Task</span>
+              </div>
+
+              <img
+                x-show="isSidebarOpen"
+                class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
+                src="/assets/icons/arrow-down-1.svg"
+                alt="Sidebar Expand Icon"
+              />
+            </div>
+          </button>
+
+          <div
+            x-show="open && isSidebarOpen"
+            x-transition.duration.300ms
+            class="m-6 flex flex-col gap-4"
+          ></div>
+        </div>
+        <!-- End Multilevel Inactive Nav Item -->
+
+        <!-- Divider -->
+        <hr class="opacity-[0.2]" />
+        <!-- End Divider -->
+
+        <!-- Single Inactive Nav Item -->
+        <a
+          href="#"
+          :class="{ 'hover:px-7': isSidebarOpen === true }"
+          class="group rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:text-black hover:opacity-100"
+        >
+          <div class="flex justify-between">
+            <div class="flex items-center gap-4">
+              <img
+                class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
+                src="/assets/icons/setting-2.svg"
+                alt="Sidebar Settings Icon"
+              />
+
+              <span x-show="isSidebarOpen">Pengaturan</span>
+            </div>
+          </div>
+        </a>
+        <!-- Single Inactive Nav Item -->
+      </div>
+      <!-- End Nav Items -->
+
+      <!-- Bottom Sidebar Item -->
+      <div
+        class="z-10 mt-auto flex w-full flex-col gap-4 rounded-xl bg-white/[0.15] p-4 text-sm"
+      >
+        <div class="font-semibold">
+          <span x-show="isSidebarOpen">Storage:</span>
+          <span class="text-[#76D210]">40MB /3GB</span>
+        </div>
+        <div class="flex justify-between">
+          <a href="#" class="flex items-center gap-3">
+            <img
+              class="w-[15px] invert"
+              src="/assets/icons/clock.svg"
+              alt="Sidebar History Icon"
+            />
+            <span x-show="isSidebarOpen">History</span>
+          </a>
+          <span x-show="isSidebarOpen">|</span>
+          <a href="#" class="flex items-center gap-3">
+            <img
+              class="w-[15px] invert"
+              src="/assets/icons/layer.svg"
+              alt="Sidebar Update Icon"
+            />
+            <span x-show="isSidebarOpen">Update</span>
+          </a>
+        </div>
+      </div>
+      <!-- End Bottom Sidebar Item -->
+
+      <!-- Illustration -->
+      <img
+        class="absolute bottom-0 left-0 w-full min-w-[300px]"
+        src="/assets/sidebar_illustration.svg"
+        alt="Sidebar Illustration"
+      />
+      <!-- End Illustration -->
+    </nav>
+
+    <main
+      :class="{
+        'ml-[100px] lg:ml-[25vw] lg:w-[75vw] xl:ml-[20vw] xl:w-[80vw] 2xl:ml-[15vw] 2xl:w-[85vw]': isSidebarOpen === true,
+        'ml-[100px]': isSidebarOpen === false,
+      }"
+      class="transition-all duration-500"
+    >
+      <!-- Topbar -->
+      <div
+        id="topbar"
+        class="flex items-center justify-between gap-4 px-6 py-2"
+      >
+        <span class="hidden font-semibold xl:block">Karyawan</span>
+
+        <!-- Search Form -->
+        <form
+          class="flex w-full max-w-[360px] items-center gap-3 rounded-full border border-[#EEEEEE] bg-[#F6F6F6] px-4 text-sm font-bold text-black"
+        >
+          <button type="submit">
+            <img
+              class="w-[20px]"
+              src="/assets/icons/search-normal-1.svg"
+              alt="Search Icon"
+            />
+          </button>
+
+          <input
+            class="w-full bg-[#F6F6F6] py-1 placeholder:font-bold placeholder:text-black focus:outline-none"
+            type="text"
+            name="search"
+            id="search"
+            placeholder="Search"
+          />
+        </form>
+        <!-- End Search Form -->
+
+        <!-- Page Actions -->
+        <div class="flex items-center gap-8 text-sm font-bold">
+          <a class="text-[#216FED]" href="grid.html">Grid</a>
+          <a href="list.html">List</a>
+          <div x-data="{ isModalOpen: false }">
+            <button @click="isModalOpen = true" type="button">Filter</button>
+
+            <!-- Filter Modal -->
+            <div
+              class="fixed left-0 top-0 z-50 flex h-screen w-full items-center justify-center bg-black/50 font-normal"
+              role="dialog"
+              tabindex="-1"
+              x-show="isModalOpen"
+              x-cloak
+            >
+              <div
+                class="mx-4 w-full max-w-xl rounded-3xl border border-[#EEEEEE] bg-white px-5 py-6"
+                x-show="isModalOpen"
+                x-transition
+                @click.outside="isModalOpen = false"
+              >
+                <h3 class="text-2xl font-bold">Filter</h3>
+
+                <hr class="my-8" />
+
+                <form action="#" class="mt-6 grid gap-6">
+                  <div class="grid max-h-[50vh] gap-6 overflow-y-auto pr-4">
+                    <div class="grid gap-4">
+                      <label class="text-sm font-semibold">
+                        Status Karyawan
+                      </label>
+
+                      <div
+                        class="grid grid-cols-2 gap-2 font-urbanist text-sm sm:grid-cols-4"
+                      >
+                        <div class="space-x-3">
+                          <input
+                            type="radio"
+                            name="employee_status"
+                            id="Semua"
+                            value="Semua"
+                          />
+                          <label for="Semua">Semua</label>
+                        </div>
+
+                        <div class="space-x-3">
+                          <input
+                            type="radio"
+                            name="employee_status"
+                            id="Magang"
+                            value="Magang"
+                          />
+                          <label for="Magang">Magang</label>
+                        </div>
+
+                        <div class="space-x-3">
+                          <input
+                            type="radio"
+                            name="employee_status"
+                            id="Freelance"
+                            value="Freelance"
+                          />
+                          <label for="Freelance">Freelance</label>
+                        </div>
+
+                        <div class="space-x-3">
+                          <input
+                            type="radio"
+                            name="employee_status"
+                            id="Tetap"
+                            value="Tetap"
+                          />
+                          <label for="Tetap">Tetap</label>
+                        </div>
+
+                        <div class="space-x-3">
+                          <input
+                            type="radio"
+                            name="employee_status"
+                            id="Kontrak"
+                            value="Kontrak"
+                          />
+                          <label for="Kontrak">Kontrak</label>
+                        </div>
+
+                        <div class="space-x-3">
+                          <input
+                            type="radio"
+                            name="employee_status"
+                            id="Harian Lepas"
+                            value="Harian Lepas"
+                          />
+                          <label for="Harian Lepas">Harian Lepas</label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="grid gap-4">
+                      <label for="area" class="text-sm font-semibold">
+                        Area
+                      </label>
+
+                      <select
+                        name="area"
+                        id="area"
+                        class="rounded-xl border border-[#EEEEEE] bg-white px-[18px] py-3 text-xs text-[#848484]"
+                      >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                      </select>
+                    </div>
+
+                    <div class="grid gap-4">
+                      <label for="lokasi" class="text-sm font-semibold">
+                        Lokasi Kantor
+                      </label>
+
+                      <select
+                        name="lokasi"
+                        id="lokasi"
+                        class="rounded-xl border border-[#EEEEEE] bg-white px-[18px] py-3 text-xs text-[#848484]"
+                      >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                      </select>
+                    </div>
+
+                    <div class="grid gap-4">
+                      <label for="divisi" class="text-sm font-semibold">
+                        Divisi
+                      </label>
+
+                      <select
+                        name="divisi"
+                        id="divisi"
+                        class="rounded-xl border border-[#EEEEEE] bg-white px-[18px] py-3 text-xs text-[#848484]"
+                      >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                      </select>
+                    </div>
+
+                    <div class="grid gap-4">
+                      <label for="jabatan" class="text-sm font-semibold">
+                        Jabatan
+                      </label>
+
+                      <select
+                        name="jabatan"
+                        id="jabatan"
+                        class="rounded-xl border border-[#EEEEEE] bg-white px-[18px] py-3 text-xs text-[#848484]"
+                      >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                      </select>
+                    </div>
+
+                    <div class="grid gap-4">
+                      <label for="nama" class="text-sm font-semibold">
+                        Nama Karyawan
+                      </label>
+
+                      <select
+                        name="nama"
+                        id="nama"
+                        class="rounded-xl border border-[#EEEEEE] bg-white px-[18px] py-3 text-xs text-[#848484]"
+                      >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <hr />
+
+                  <div class="mt-4 flex justify-end gap-4">
+                    <button
+                      @click="isModalOpen = false"
+                      type="button"
+                      class="rounded-full border border-[#EEEEEE] px-8 py-5 font-urbanist text-sm font-extrabold"
+                    >
+                      CANCEL
+                    </button>
+
+                    <button
+                      type="submit"
+                      class="flex items-center gap-4 rounded-full bg-[#216FED] px-8 py-5 text-sm font-extrabold text-white"
+                    >
+                      APPLY FILTER
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!-- End Filter Modal -->
+          </div>
+          <a href="#">Export</a>
+          <div x-data="{ isModalOpen: false }">
+            <button @click="isModalOpen = true" type="button">Import</button>
+
+            <!-- Import Modal -->
+            <div
+              class="fixed left-0 top-0 z-50 flex h-screen w-full items-center justify-center bg-black/50 font-normal"
+              role="dialog"
+              tabindex="-1"
+              x-show="isModalOpen"
+              x-cloak
+            >
+              <div
+                class="mx-4 w-full max-w-xl rounded-3xl border border-[#EEEEEE] bg-white px-5 py-6"
+                x-show="isModalOpen"
+                x-transition
+                @click.outside="isModalOpen = false"
+              >
+                <h3 class="text-2xl font-bold">Import Data</h3>
+
+                <hr class="my-8" />
+
+                <div
+                  class="flex w-full gap-4 rounded-[20px] bg-[#216FED]/10 px-8 py-4"
+                >
+                  <img
+                    class="w-[35px]"
+                    src="/assets/icons/lamp-on.svg"
+                    alt="Import Modal Lamp Icon"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="text-sm font-bold text-[#1F3775]">Info</span>
+                    <span class="text-xs">
+                      You could download the sample before import.
+                      <a class="text-[#216FED]" href="#">Click Here</a>
+                    </span>
+                  </div>
+                </div>
+
+                <form action="#" class="mt-6 grid gap-6">
+                  <div class="grid gap-4">
+                    <label
+                      for="file"
+                      class="font-urbanist text-sm font-semibold"
+                    >
+                      Upload XLS
+                      <span class="text-[#B93F61]">*</span>
+                    </label>
+
+                    <input
+                      type="file"
+                      name="file"
+                      id="file"
+                      class="rounded-xl border border-[#EEEEEE] bg-white px-[18px] py-3 text-xs text-[#848484]"
+                    />
+                  </div>
+
+                  <div class="mt-4 flex justify-end gap-4">
+                    <button
+                      @click="isModalOpen = false"
+                      type="button"
+                      class="rounded-full border border-[#EEEEEE] px-8 py-5 font-urbanist text-sm font-extrabold"
+                    >
+                      CANCEL
+                    </button>
+
+                    <button
+                      type="submit"
+                      class="flex items-center gap-4 rounded-full bg-[#216FED] px-8 py-5 text-sm font-extrabold text-white"
+                    >
+                      <img
+                        class="w-[20px]"
+                        src="/assets/icons/import-1.svg"
+                        alt="Import Modal Import Icon"
+                      />
+                      IMPORT
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!-- End Import Modal -->
+          </div>
+          <div
+            x-data="{ isDropdownOpen: false }"
+            @click.outside="isDropdownOpen = false"
+            class="relative"
+          >
+            <button type="button" @click="isDropdownOpen = !isDropdownOpen">
+              Bulk Action
+            </button>
+
+            <!-- Bulk Action Dropdown -->
+            <ul
+              x-show="isDropdownOpen"
+              x-cloak
+              x-transition.opacity
+              class="absolute -left-[50%] top-[150%] flex min-w-[150px] flex-col items-center justify-center gap-4 rounded-3xl border border-[#EEEEEE] bg-white px-5 py-6 text-end text-xs font-semibold shadow-lg"
+            >
+              <form action="#">
+                <button type="submit" class="text-[#B93F61]">
+                  Delete Karyawan
+                </button>
+              </form>
+            </ul>
+            <!-- End Bulk Action Dropdown -->
+          </div>
+          <a href="#">Tambah Karyawan</a>
+        </div>
+        <!-- Page Actions -->
+      </div>
+      <!-- End Topbar -->
+
+      <!-- Wrapper -->
+      <section id="wrapper" class="space-y-6 rounded-t-[40px] bg-[#F6F6F6] p-6">
+        <!-- Main -->
+        <div class="space-y-6 rounded-[30px] bg-white p-6 text-sm">
+          <!-- Menu -->
+          <div class="overflow-x-auto pb-4 sm:pb-0">
+            <div
+              class="flex w-fit gap-0.5 rounded-full bg-[#EEEEEE] p-0.5 text-white"
+            >
+              <button
+                class="rounded-full bg-[#131B2D] px-5 py-3 text-white transition duration-300 hover:bg-white hover:text-[#131B2D]"
+              >
+                Area
+              </button>
+              <button
+                class="rounded-full px-5 py-3 text-[#848484] transition duration-300 hover:bg-white"
+              >
+                Lokasi
+              </button>
+              <button
+                class="rounded-full px-5 py-3 text-[#848484] transition duration-300 hover:bg-white"
+              >
+                Kantor
+              </button>
+              <button
+                class="rounded-full px-5 py-3 text-[#848484] transition duration-300 hover:bg-white"
+              >
+                Divisi
+              </button>
+            </div>
+          </div>
+          <!-- End Menu -->
+
+          <!-- Statistics -->
+          <div
+            class="flex w-full gap-4 overflow-x-auto whitespace-nowrap pb-4 font-urbanist text-white 2xl:pb-0"
+          >
+            <div
+              class="flex items-center gap-3 rounded-full bg-[#62C451] px-7 py-2"
+            >
+              <span class="font-medium">Karyawan Tetap</span>
+              <span class="text-lg font-extrabold">25</span>
+            </div>
+
+            <div
+              class="flex items-center gap-3 rounded-full bg-[#FAC25C] px-7 py-2"
+            >
+              <span class="font-medium">Karyawan Kontrak</span>
+              <span class="text-lg font-extrabold">25</span>
+            </div>
+
+            <div
+              class="flex items-center gap-3 rounded-full bg-[#FA815A] px-7 py-2"
+            >
+              <span class="font-medium">Karyawan Freelance</span>
+              <span class="text-lg font-extrabold">20</span>
+            </div>
+
+            <div
+              class="flex items-center gap-3 rounded-full bg-[#8145F4] px-7 py-2"
+            >
+              <span class="font-medium">Karyawan Magang</span>
+              <span class="text-lg font-extrabold">20</span>
+            </div>
+
+            <div
+              class="flex items-center gap-3 rounded-full bg-[#1F3775] px-7 py-2"
+            >
+              <span class="font-medium">Karyawan Harian Lepas</span>
+              <span class="text-lg font-extrabold">10</span>
+            </div>
+
+            <div
+              class="flex items-center gap-3 rounded-full bg-[#B93F61] px-7 py-2"
+            >
+              <span class="font-medium">Karyawan Tidak Aktif</span>
+              <span class="text-lg font-extrabold">10</span>
+            </div>
+          </div>
+          <!-- End Statistics -->
+        </div>
+        <!-- End Main -->
+
+        <!-- Content - Grid Page -->
+        <div id="content" class="space-y-6">
+          <!-- Cards Containter -->
+          <div
+            class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5"
+          >
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="/assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Syafie Muhammad</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <!-- Card Dropdown -->
+                <div
+                  x-data="{ isDropdownOpen: false }"
+                  @click.outside="isDropdownOpen = false"
+                  class="relative"
+                >
+                  <button
+                    type="button"
+                    @click="isDropdownOpen = !isDropdownOpen"
+                  >
+                    <img
+                      src="/assets/icons/more.svg"
+                      alt="Employee More Icons"
+                    />
+                  </button>
+
+                  <ul
+                    x-show="isDropdownOpen"
+                    x-cloak
+                    x-transition.opacity
+                    class="absolute right-0 top-[100%] flex min-w-[150px] flex-col items-end justify-center gap-4 rounded-3xl border border-[#EEEEEE] bg-white px-5 py-6 text-end text-xs font-semibold shadow-lg"
+                  >
+                    <a href="#">Payroll</a>
+                    <form action="#">
+                      <button type="submit" class="text-[#B93F61]">
+                        Delete Karyawan
+                      </button>
+                    </form>
+                  </ul>
+                </div>
+                <!-- End Card Dropdown -->
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="/assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="/assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Savannah Nguyen</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <!-- Card Dropdown -->
+                <div
+                  x-data="{ isDropdownOpen: false }"
+                  @click.outside="isDropdownOpen = false"
+                  class="relative"
+                >
+                  <button
+                    type="button"
+                    @click="isDropdownOpen = !isDropdownOpen"
+                  >
+                    <img
+                      src="/assets/icons/more.svg"
+                      alt="Employee More Icons"
+                    />
+                  </button>
+
+                  <ul
+                    x-show="isDropdownOpen"
+                    x-cloak
+                    x-transition.opacity
+                    class="absolute right-0 top-[100%] flex min-w-[150px] flex-col items-end justify-center gap-4 rounded-3xl border border-[#EEEEEE] bg-white px-5 py-6 text-end text-xs font-semibold shadow-lg"
+                  >
+                    <a href="#">Payroll</a>
+                    <form action="#">
+                      <button type="submit" class="text-[#B93F61]">
+                        Delete Karyawan
+                      </button>
+                    </form>
+                  </ul>
+                </div>
+                <!-- End Card Dropdown -->
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="/assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="/assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Ralph Edwards</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <!-- Card Dropdown -->
+                <div
+                  x-data="{ isDropdownOpen: false }"
+                  @click.outside="isDropdownOpen = false"
+                  class="relative"
+                >
+                  <button
+                    type="button"
+                    @click="isDropdownOpen = !isDropdownOpen"
+                  >
+                    <img
+                      src="/assets/icons/more.svg"
+                      alt="Employee More Icons"
+                    />
+                  </button>
+
+                  <ul
+                    x-show="isDropdownOpen"
+                    x-cloak
+                    x-transition.opacity
+                    class="absolute right-0 top-[100%] flex min-w-[150px] flex-col items-end justify-center gap-4 rounded-3xl border border-[#EEEEEE] bg-white px-5 py-6 text-end text-xs font-semibold shadow-lg"
+                  >
+                    <a href="#">Payroll</a>
+                    <form action="#">
+                      <button type="submit" class="text-[#B93F61]">
+                        Delete Karyawan
+                      </button>
+                    </form>
+                  </ul>
+                </div>
+                <!-- End Card Dropdown -->
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="/assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="/assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Guy Hawkins</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <!-- Card Dropdown -->
+                <div
+                  x-data="{ isDropdownOpen: false }"
+                  @click.outside="isDropdownOpen = false"
+                  class="relative"
+                >
+                  <button
+                    type="button"
+                    @click="isDropdownOpen = !isDropdownOpen"
+                  >
+                    <img
+                      src="/assets/icons/more.svg"
+                      alt="Employee More Icons"
+                    />
+                  </button>
+
+                  <ul
+                    x-show="isDropdownOpen"
+                    x-cloak
+                    x-transition.opacity
+                    class="absolute right-0 top-[100%] flex min-w-[150px] flex-col items-end justify-center gap-4 rounded-3xl border border-[#EEEEEE] bg-white px-5 py-6 text-end text-xs font-semibold shadow-lg"
+                  >
+                    <a href="#">Payroll</a>
+                    <form action="#">
+                      <button type="submit" class="text-[#B93F61]">
+                        Delete Karyawan
+                      </button>
+                    </form>
+                  </ul>
+                </div>
+                <!-- End Card Dropdown -->
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="/assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="/assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Guy Hawkins</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <!-- Card Dropdown -->
+                <div
+                  x-data="{ isDropdownOpen: false }"
+                  @click.outside="isDropdownOpen = false"
+                  class="relative"
+                >
+                  <button
+                    type="button"
+                    @click="isDropdownOpen = !isDropdownOpen"
+                  >
+                    <img
+                      src="/assets/icons/more.svg"
+                      alt="Employee More Icons"
+                    />
+                  </button>
+
+                  <ul
+                    x-show="isDropdownOpen"
+                    x-cloak
+                    x-transition.opacity
+                    class="absolute right-0 top-[100%] flex min-w-[150px] flex-col items-end justify-center gap-4 rounded-3xl border border-[#EEEEEE] bg-white px-5 py-6 text-end text-xs font-semibold shadow-lg"
+                  >
+                    <a href="#">Payroll</a>
+                    <form action="#">
+                      <button type="submit" class="text-[#B93F61]">
+                        Delete Karyawan
+                      </button>
+                    </form>
+                  </ul>
+                </div>
+                <!-- End Card Dropdown -->
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="/assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="/assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Syafie Muhammad</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <!-- Card Dropdown -->
+                <div
+                  x-data="{ isDropdownOpen: false }"
+                  @click.outside="isDropdownOpen = false"
+                  class="relative"
+                >
+                  <button
+                    type="button"
+                    @click="isDropdownOpen = !isDropdownOpen"
+                  >
+                    <img
+                      src="/assets/icons/more.svg"
+                      alt="Employee More Icons"
+                    />
+                  </button>
+
+                  <ul
+                    x-show="isDropdownOpen"
+                    x-cloak
+                    x-transition.opacity
+                    class="absolute right-0 top-[100%] flex min-w-[150px] flex-col items-end justify-center gap-4 rounded-3xl border border-[#EEEEEE] bg-white px-5 py-6 text-end text-xs font-semibold shadow-lg"
+                  >
+                    <a href="#">Payroll</a>
+                    <form action="#">
+                      <button type="submit" class="text-[#B93F61]">
+                        Delete Karyawan
+                      </button>
+                    </form>
+                  </ul>
+                </div>
+                <!-- End Card Dropdown -->
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="/assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="/assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Savannah Nguyen</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <!-- Card Dropdown -->
+                <div
+                  x-data="{ isDropdownOpen: false }"
+                  @click.outside="isDropdownOpen = false"
+                  class="relative"
+                >
+                  <button
+                    type="button"
+                    @click="isDropdownOpen = !isDropdownOpen"
+                  >
+                    <img
+                      src="/assets/icons/more.svg"
+                      alt="Employee More Icons"
+                    />
+                  </button>
+
+                  <ul
+                    x-show="isDropdownOpen"
+                    x-cloak
+                    x-transition.opacity
+                    class="absolute right-0 top-[100%] flex min-w-[150px] flex-col items-end justify-center gap-4 rounded-3xl border border-[#EEEEEE] bg-white px-5 py-6 text-end text-xs font-semibold shadow-lg"
+                  >
+                    <a href="#">Payroll</a>
+                    <form action="#">
+                      <button type="submit" class="text-[#B93F61]">
+                        Delete Karyawan
+                      </button>
+                    </form>
+                  </ul>
+                </div>
+                <!-- End Card Dropdown -->
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="/assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="/assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Ralph Edwards</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <!-- Card Dropdown -->
+                <div
+                  x-data="{ isDropdownOpen: false }"
+                  @click.outside="isDropdownOpen = false"
+                  class="relative"
+                >
+                  <button
+                    type="button"
+                    @click="isDropdownOpen = !isDropdownOpen"
+                  >
+                    <img
+                      src="/assets/icons/more.svg"
+                      alt="Employee More Icons"
+                    />
+                  </button>
+
+                  <ul
+                    x-show="isDropdownOpen"
+                    x-cloak
+                    x-transition.opacity
+                    class="absolute right-0 top-[100%] flex min-w-[150px] flex-col items-end justify-center gap-4 rounded-3xl border border-[#EEEEEE] bg-white px-5 py-6 text-end text-xs font-semibold shadow-lg"
+                  >
+                    <a href="#">Payroll</a>
+                    <form action="#">
+                      <button type="submit" class="text-[#B93F61]">
+                        Delete Karyawan
+                      </button>
+                    </form>
+                  </ul>
+                </div>
+                <!-- End Card Dropdown -->
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="/assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="/assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Guy Hawkins</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <!-- Card Dropdown -->
+                <div
+                  x-data="{ isDropdownOpen: false }"
+                  @click.outside="isDropdownOpen = false"
+                  class="relative"
+                >
+                  <button
+                    type="button"
+                    @click="isDropdownOpen = !isDropdownOpen"
+                  >
+                    <img
+                      src="/assets/icons/more.svg"
+                      alt="Employee More Icons"
+                    />
+                  </button>
+
+                  <ul
+                    x-show="isDropdownOpen"
+                    x-cloak
+                    x-transition.opacity
+                    class="absolute right-0 top-[100%] flex min-w-[150px] flex-col items-end justify-center gap-4 rounded-3xl border border-[#EEEEEE] bg-white px-5 py-6 text-end text-xs font-semibold shadow-lg"
+                  >
+                    <a href="#">Payroll</a>
+                    <form action="#">
+                      <button type="submit" class="text-[#B93F61]">
+                        Delete Karyawan
+                      </button>
+                    </form>
+                  </ul>
+                </div>
+                <!-- End Card Dropdown -->
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="/assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="/assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Guy Hawkins</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <!-- Card Dropdown -->
+                <div
+                  x-data="{ isDropdownOpen: false }"
+                  @click.outside="isDropdownOpen = false"
+                  class="relative"
+                >
+                  <button
+                    type="button"
+                    @click="isDropdownOpen = !isDropdownOpen"
+                  >
+                    <img
+                      src="/assets/icons/more.svg"
+                      alt="Employee More Icons"
+                    />
+                  </button>
+
+                  <ul
+                    x-show="isDropdownOpen"
+                    x-cloak
+                    x-transition.opacity
+                    class="absolute right-0 top-[100%] flex min-w-[150px] flex-col items-end justify-center gap-4 rounded-3xl border border-[#EEEEEE] bg-white px-5 py-6 text-end text-xs font-semibold shadow-lg"
+                  >
+                    <a href="#">Payroll</a>
+                    <form action="#">
+                      <button type="submit" class="text-[#B93F61]">
+                        Delete Karyawan
+                      </button>
+                    </form>
+                  </ul>
+                </div>
+                <!-- End Card Dropdown -->
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="/assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="/assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Syafie Muhammad</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <!-- Card Dropdown -->
+                <div
+                  x-data="{ isDropdownOpen: false }"
+                  @click.outside="isDropdownOpen = false"
+                  class="relative"
+                >
+                  <button
+                    type="button"
+                    @click="isDropdownOpen = !isDropdownOpen"
+                  >
+                    <img
+                      src="/assets/icons/more.svg"
+                      alt="Employee More Icons"
+                    />
+                  </button>
+
+                  <ul
+                    x-show="isDropdownOpen"
+                    x-cloak
+                    x-transition.opacity
+                    class="absolute right-0 top-[100%] flex min-w-[150px] flex-col items-end justify-center gap-4 rounded-3xl border border-[#EEEEEE] bg-white px-5 py-6 text-end text-xs font-semibold shadow-lg"
+                  >
+                    <a href="#">Payroll</a>
+                    <form action="#">
+                      <button type="submit" class="text-[#B93F61]">
+                        Delete Karyawan
+                      </button>
+                    </form>
+                  </ul>
+                </div>
+                <!-- End Card Dropdown -->
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="/assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="/assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Savannah Nguyen</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <!-- Card Dropdown -->
+                <div
+                  x-data="{ isDropdownOpen: false }"
+                  @click.outside="isDropdownOpen = false"
+                  class="relative"
+                >
+                  <button
+                    type="button"
+                    @click="isDropdownOpen = !isDropdownOpen"
+                  >
+                    <img
+                      src="/assets/icons/more.svg"
+                      alt="Employee More Icons"
+                    />
+                  </button>
+
+                  <ul
+                    x-show="isDropdownOpen"
+                    x-cloak
+                    x-transition.opacity
+                    class="absolute right-0 top-[100%] flex min-w-[150px] flex-col items-end justify-center gap-4 rounded-3xl border border-[#EEEEEE] bg-white px-5 py-6 text-end text-xs font-semibold shadow-lg"
+                  >
+                    <a href="#">Payroll</a>
+                    <form action="#">
+                      <button type="submit" class="text-[#B93F61]">
+                        Delete Karyawan
+                      </button>
+                    </form>
+                  </ul>
+                </div>
+                <!-- End Card Dropdown -->
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="/assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="/assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Ralph Edwards</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <!-- Card Dropdown -->
+                <div
+                  x-data="{ isDropdownOpen: false }"
+                  @click.outside="isDropdownOpen = false"
+                  class="relative"
+                >
+                  <button
+                    type="button"
+                    @click="isDropdownOpen = !isDropdownOpen"
+                  >
+                    <img
+                      src="/assets/icons/more.svg"
+                      alt="Employee More Icons"
+                    />
+                  </button>
+
+                  <ul
+                    x-show="isDropdownOpen"
+                    x-cloak
+                    x-transition.opacity
+                    class="absolute right-0 top-[100%] flex min-w-[150px] flex-col items-end justify-center gap-4 rounded-3xl border border-[#EEEEEE] bg-white px-5 py-6 text-end text-xs font-semibold shadow-lg"
+                  >
+                    <a href="#">Payroll</a>
+                    <form action="#">
+                      <button type="submit" class="text-[#B93F61]">
+                        Delete Karyawan
+                      </button>
+                    </form>
+                  </ul>
+                </div>
+                <!-- End Card Dropdown -->
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="/assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="/assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Guy Hawkins</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <!-- Card Dropdown -->
+                <div
+                  x-data="{ isDropdownOpen: false }"
+                  @click.outside="isDropdownOpen = false"
+                  class="relative"
+                >
+                  <button
+                    type="button"
+                    @click="isDropdownOpen = !isDropdownOpen"
+                  >
+                    <img
+                      src="/assets/icons/more.svg"
+                      alt="Employee More Icons"
+                    />
+                  </button>
+
+                  <ul
+                    x-show="isDropdownOpen"
+                    x-cloak
+                    x-transition.opacity
+                    class="absolute right-0 top-[100%] flex min-w-[150px] flex-col items-end justify-center gap-4 rounded-3xl border border-[#EEEEEE] bg-white px-5 py-6 text-end text-xs font-semibold shadow-lg"
+                  >
+                    <a href="#">Payroll</a>
+                    <form action="#">
+                      <button type="submit" class="text-[#B93F61]">
+                        Delete Karyawan
+                      </button>
+                    </form>
+                  </ul>
+                </div>
+                <!-- End Card Dropdown -->
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="/assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div
+              class="space-y-4 rounded-3xl bg-white px-5 py-6 transition duration-500 hover:scale-[.99] hover:shadow-lg"
+            >
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <img
+                    class="w-[30px] rounded-full"
+                    src="/assets/avatar_placeholder.png"
+                    alt="Employee Avatar"
+                  />
+
+                  <div class="flex flex-col gap-2">
+                    <span class="font-bold">Guy Hawkins</span>
+                    <span class="text-sm text-[#848484]">TKI-MOD-0004</span>
+                  </div>
+                </div>
+
+                <!-- Card Dropdown -->
+                <div
+                  x-data="{ isDropdownOpen: false }"
+                  @click.outside="isDropdownOpen = false"
+                  class="relative"
+                >
+                  <button
+                    type="button"
+                    @click="isDropdownOpen = !isDropdownOpen"
+                  >
+                    <img
+                      src="/assets/icons/more.svg"
+                      alt="Employee More Icons"
+                    />
+                  </button>
+
+                  <ul
+                    x-show="isDropdownOpen"
+                    x-cloak
+                    x-transition.opacity
+                    class="absolute right-0 top-[100%] flex min-w-[150px] flex-col items-end justify-center gap-4 rounded-3xl border border-[#EEEEEE] bg-white px-5 py-6 text-end text-xs font-semibold shadow-lg"
+                  >
+                    <a href="#">Payroll</a>
+                    <form action="#">
+                      <button type="submit" class="text-[#B93F61]">
+                        Delete Karyawan
+                      </button>
+                    </form>
+                  </ul>
+                </div>
+                <!-- End Card Dropdown -->
+              </div>
+              <!-- Card Header -->
+
+              <!-- Divider -->
+              <hr />
+              <!-- End Divider -->
+
+              <!-- Card Body -->
+              <div
+                class="grid grid-cols-2 grid-rows-3 justify-between gap-x-4 gap-y-6"
+              >
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Jabatan</span>
+                  <span class="text-sm text-[#848484]">BE DEVELOPER</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Status</span>
+                  <span class="text-sm text-[#848484]">Harian Lepas</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Kantor</span>
+                  <span class="text-sm text-[#848484]">Modena Kuningan</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Gaji</span>
+                  <span class="text-sm text-[#848484]">3.500.000</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-semibold">Divisi</span>
+                  <span class="text-sm text-[#848484]">DEVELOPER</span>
+                </div>
+
+                <a href="#" class="flex items-center gap-4">
+                  <span class="text-sm font-semibold text-[#216FED]"
+                    >View Detail</span
+                  >
+                  <img
+                    class="w-[25px] text-sm text-[#848484]"
+                    src="/assets/icons/arrow-right.svg"
+                  />
+                </a>
+              </div>
+              <!-- Card Body -->
+            </div>
+            <!-- End Card -->
+          </div>
+          <!-- End Cards Container -->
+
+          <!-- Pagination -->
+          <div
+            class="flex w-fit flex-wrap items-center justify-between gap-x-8 gap-y-4 font-urbanist"
+          >
+            <div class="flex gap-2">
+              <a href="#" class="rounded-full bg-[#F6F6F6] p-2">
+                <img
+                  class="w-[20px] opacity-75"
+                  src="/assets/icons/arrow-left.svg"
+                  alt="Pagination Previous"
+                />
+              </a>
+              <a href="#" class="rounded-full bg-[#F6F6F6] p-2">
+                <img
+                  class="w-[20px] opacity-75"
+                  src="/assets/icons/arrow-right-1.svg"
+                  alt="Pagination Next"
+                />
+              </a>
+            </div>
+
+            <div class="flex items-center gap-2 text-sm">
+              <span>Page</span>
+              <span
+                class="rounded-lg border border-[#EEEEEE] bg-white px-3 py-1 font-bold"
+              >
+                1
+              </span>
+              <span>of 5</span>
+            </div>
+
+            <span class="text-[#848484]">Display 1 to 15 of 50 data.</span>
+          </div>
+          <!-- End Pagination -->
+        </div>
+        <!-- End Content - Grid Page -->
+      </section>
+      <!-- End Wrapper -->
+    </main>
+  </body>
+</html>

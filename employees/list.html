@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reprime Backend - Karyawan</title>
+
+    <!-- Font - Plus Jakarta Sans & Urbanist -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Urbanist:wght@400;500;600;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font - Proxima Nova -->
+    <link
+      href="https://fonts.cdnfonts.com/css/proxima-nova-2?styles=44821"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body class="overflow-x-hidden">
+    <nav
+      id="sidebar"
+      class="fixed z-40 float-left hidden h-screen w-[15vw] flex-col overflow-y-auto overflow-x-hidden rounded-r-2xl bg-[#222A3C] p-4 text-sm text-white xl:flex"
+    >
+      <div class="relative z-10 my-6 flex items-center justify-center">
+        <!-- Logo -->
+        <a href="#" class="mr-8 flex gap-3">
+          <img
+            class="w-[30px]"
+            src="/assets/reprime_logo.svg"
+            alt="Logo Reprime"
+          />
+          <h1 class="font-logo text-xl font-semibold tracking-wider">
+            REPRIME
+          </h1>
+        </a>
+        <!-- End Logo -->
+
+        <!-- Sidebar Toggle Button -->
+        <button
+          class="absolute -right-4 rounded-l-xl border border-[#EEEEEE] bg-white px-1 py-3"
+        >
+          <img
+            class="w-[25px]"
+            src="/assets/icons/menu-1.svg"
+            alt="Sidebar Hamburger Icon"
+          />
+        </button>
+        <!-- End Sidebar Toggle Button -->
+      </div>
+
+      <!-- Nav Items -->
+      <div class="z-10 my-5 flex flex-col gap-5">
+        <!-- Divider -->
+        <hr class="opacity-[0.2]" />
+        <!-- End Divider -->
+
+        <!-- Single Inactive Nav Item -->
+        <a
+          href="#"
+          class="group rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:px-7 hover:text-black hover:opacity-100"
+        >
+          <div class="flex justify-between">
+            <div class="flex items-center gap-4">
+              <img
+                class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
+                src="/assets/icons/element-2.svg"
+                alt="Sidebar Dashboard Icon"
+              />
+
+              <span>Dashboard</span>
+            </div>
+          </div>
+        </a>
+        <!-- End Single Inactive Nav Item -->
+
+        <!-- Multilevel Active Nav Item -->
+        <div class="rounded-xl bg-white text-black">
+          <button class="group w-full rounded-xl bg-[#F6F6F6] px-7 py-3">
+            <div class="flex justify-between">
+              <div class="flex items-center gap-4">
+                <img
+                  class="w-[20px]"
+                  src="/assets/icons/profile-2user.svg"
+                  alt="Sidebar Employees Icon"
+                />
+
+                <span>Karyawan</span>
+              </div>
+
+              <img
+                class="w-[20px]"
+                src="/assets/icons/arrow-down-1.svg"
+                alt="Sidebar Expand Icon"
+              />
+            </div>
+          </button>
+
+          <div class="m-6 flex flex-col gap-4">
+            <a href="#" class="font-semibold">Data Karyawan</a>
+            <a
+              href="#"
+              class="opacity-75 transition-all duration-500 hover:font-semibold hover:opacity-100"
+              >Kontrak Kerja</a
+            >
+          </div>
+        </div>
+        <!-- End Multilevel Active Nav Item -->
+
+        <!-- Multilevel Inactive Nav Item -->
+        <div>
+          <button
+            class="group w-full rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:px-7 hover:text-black hover:opacity-100"
+          >
+            <div class="flex justify-between">
+              <div class="flex items-center gap-4">
+                <img
+                  class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
+                  src="/assets/icons/note-1.svg"
+                  alt="Sidebar Presences Icon"
+                />
+
+                <span>Kehadiran</span>
+              </div>
+
+              <img
+                class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
+                src="/assets/icons/arrow-down-1.svg"
+                alt="Sidebar Expand Icon"
+              />
+            </div>
+          </button>
+
+          <!-- <div class="m-6 flex flex-col gap-4"></div> -->
+        </div>
+        <!-- End Multilevel Inactive Nav Item -->
+
+        <!-- Multilevel Inactive Nav Item -->
+        <div>
+          <button
+            class="group w-full rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:px-7 hover:text-black hover:opacity-100"
+          >
+            <div class="flex justify-between">
+              <div class="flex items-center gap-4">
+                <img
+                  class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
+                  src="/assets/icons/task-square.svg"
+                  alt="Sidebar Performance Icon"
+                />
+
+                <span>Kinerja</span>
+              </div>
+
+              <img
+                class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
+                src="/assets/icons/arrow-down-1.svg"
+                alt="Sidebar Expand Icon"
+              />
+            </div>
+          </button>
+
+          <!-- <div class="m-6 flex flex-col gap-4"></div> -->
+        </div>
+        <!-- End Multilevel Inactive Nav Item -->
+
+        <!-- Single Inactive Nav Item -->
+        <a
+          href="#"
+          class="group rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:px-7 hover:text-black hover:opacity-100"
+        >
+          <div class="flex justify-between">
+            <div class="flex items-center gap-4">
+              <img
+                class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
+                src="/assets/icons/wallet-3.svg"
+                alt="Sidebar Finance Icon"
+              />
+
+              <span>Finance</span>
+            </div>
+          </div>
+        </a>
+        <!-- End Single Inactive Nav Item -->
+
+        <!-- Multilevel Inactive Nav Item -->
+        <div>
+          <button
+            class="group w-full rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:px-7 hover:text-black hover:opacity-100"
+          >
+            <div class="flex justify-between">
+              <div class="flex items-center gap-4">
+                <img
+                  class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
+                  src="/assets/icons/clipboard-text.svg"
+                  alt="Sidebar Task Icon"
+                />
+
+                <span>Task</span>
+              </div>
+
+              <img
+                class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
+                src="/assets/icons/arrow-down-1.svg"
+                alt="Sidebar Expand Icon"
+              />
+            </div>
+          </button>
+
+          <!-- <div class="m-6 flex flex-col gap-4"></div> -->
+        </div>
+        <!-- End Multilevel Inactive Nav Item -->
+
+        <!-- Divider -->
+        <hr class="opacity-[0.2]" />
+        <!-- End Divider -->
+
+        <!-- Single Inactive Nav Item -->
+        <a
+          href="#"
+          class="group rounded-xl px-4 py-3 opacity-75 transition-all duration-300 hover:bg-white hover:px-7 hover:text-black hover:opacity-100"
+        >
+          <div class="flex justify-between">
+            <div class="flex items-center gap-4">
+              <img
+                class="w-[20px] invert transition-all duration-500 group-hover:invert-0"
+                src="/assets/icons/setting-2.svg"
+                alt="Sidebar Settings Icon"
+              />
+
+              <span>Pengaturan</span>
+            </div>
+          </div>
+        </a>
+        <!-- Single Inactive Nav Item -->
+      </div>
+      <!-- End Nav Items -->
+
+      <!-- Bottom Sidebar Item -->
+      <div
+        class="z-10 mt-auto flex w-full flex-col gap-4 rounded-xl bg-white/[0.15] p-4 text-sm"
+      >
+        <div class="font-semibold">
+          <span>Storage:</span>
+          <span class="text-[#76D210]">40MB /3GB</span>
+        </div>
+        <div class="flex justify-between">
+          <a href="#" class="flex items-center gap-3">
+            <img
+              class="w-[15px] invert"
+              src="/assets/icons/clock.svg"
+              alt="Sidebar History Icon"
+            />
+            <span>History</span>
+          </a>
+          <span>|</span>
+          <a href="#" class="flex items-center gap-3">
+            <img
+              class="w-[15px] invert"
+              src="/assets/icons/layer.svg"
+              alt="Sidebar Update Icon"
+            />
+            <span>Update</span>
+          </a>
+        </div>
+      </div>
+      <!-- End Bottom Sidebar Item -->
+
+      <!-- Illustration -->
+      <img
+        class="absolute bottom-0 left-0 w-full min-w-[300px]"
+        src="/assets/sidebar_illustration.svg"
+        alt="Sidebar Illustration"
+      />
+      <!-- End Illustration -->
+    </nav>
+
+    <main class="float-right w-full xl:w-[85vw]">
+      <!-- Topbar -->
+      <div
+        id="topbar"
+        class="flex items-center justify-between gap-4 px-6 py-2"
+      >
+        <span class="hidden font-semibold xl:block">Karyawan</span>
+
+        <!-- Search Form -->
+        <form
+          class="flex w-full max-w-[360px] items-center gap-3 rounded-full border border-[#EEEEEE] bg-[#F6F6F6] px-4 text-sm font-bold text-black"
+        >
+          <button type="submit">
+            <img
+              class="w-[20px]"
+              src="/assets/icons/search-normal-1.svg"
+              alt="Search Icon"
+            />
+          </button>
+
+          <input
+            class="w-full bg-[#F6F6F6] py-1 placeholder:font-bold placeholder:text-black focus:outline-none"
+            type="text"
+            name="search"
+            id="search"
+            placeholder="Search"
+          />
+        </form>
+        <!-- End Search Form -->
+
+        <!-- Page Actions -->
+        <div class="flex items-center gap-8 text-sm font-bold">
+          <a href="grid.html">Grid</a>
+          <a class="text-[#216FED]" href="list.html">List</a>
+          <button type="button">Filter</button>
+          <a href="#">Export</a>
+          <button type="button">Import</button>
+          <button type="button">Bulk Action</button>
+          <a href="#">Tambah Karyawan</a>
+        </div>
+        <!-- Page Actions -->
+      </div>
+      <!-- End Topbar -->
+
+      <!-- Wrapper -->
+      <section id="wrapper" class="space-y-6 rounded-t-[40px] bg-[#F6F6F6] p-6">
+        <!-- Main -->
+        <div class="space-y-6 rounded-[30px] bg-white p-6 text-sm">
+          <!-- Menu -->
+          <div class="overflow-x-auto pb-4 sm:pb-0">
+            <div
+              class="flex w-fit gap-0.5 rounded-full bg-[#EEEEEE] p-0.5 text-white"
+            >
+              <button
+                class="rounded-full bg-[#131B2D] px-5 py-3 text-white transition duration-300 hover:bg-white hover:text-[#131B2D]"
+              >
+                Area
+              </button>
+              <button
+                class="rounded-full px-5 py-3 text-[#848484] transition duration-300 hover:bg-white"
+              >
+                Lokasi
+              </button>
+              <button
+                class="rounded-full px-5 py-3 text-[#848484] transition duration-300 hover:bg-white"
+              >
+                Kantor
+              </button>
+              <button
+                class="rounded-full px-5 py-3 text-[#848484] transition duration-300 hover:bg-white"
+              >
+                Divisi
+              </button>
+            </div>
+          </div>
+          <!-- End Menu -->
+
+          <!-- Statistics -->
+          <div
+            class="flex w-full gap-4 overflow-x-auto whitespace-nowrap pb-4 font-urbanist text-white 2xl:pb-0"
+          >
+            <div
+              class="flex items-center gap-3 rounded-full bg-[#62C451] px-7 py-2"
+            >
+              <span class="font-medium">Karyawan Tetap</span>
+              <span class="text-lg font-extrabold">25</span>
+            </div>
+
+            <div
+              class="flex items-center gap-3 rounded-full bg-[#FAC25C] px-7 py-2"
+            >
+              <span class="font-medium">Karyawan Kontrak</span>
+              <span class="text-lg font-extrabold">25</span>
+            </div>
+
+            <div
+              class="flex items-center gap-3 rounded-full bg-[#FA815A] px-7 py-2"
+            >
+              <span class="font-medium">Karyawan Freelance</span>
+              <span class="text-lg font-extrabold">20</span>
+            </div>
+
+            <div
+              class="flex items-center gap-3 rounded-full bg-[#8145F4] px-7 py-2"
+            >
+              <span class="font-medium">Karyawan Magang</span>
+              <span class="text-lg font-extrabold">20</span>
+            </div>
+
+            <div
+              class="flex items-center gap-3 rounded-full bg-[#1F3775] px-7 py-2"
+            >
+              <span class="font-medium">Karyawan Harian Lepas</span>
+              <span class="text-lg font-extrabold">10</span>
+            </div>
+
+            <div
+              class="flex items-center gap-3 rounded-full bg-[#B93F61] px-7 py-2"
+            >
+              <span class="font-medium">Karyawan Tidak Aktif</span>
+              <span class="text-lg font-extrabold">10</span>
+            </div>
+          </div>
+          <!-- End Statistics -->
+        </div>
+        <!-- End Main -->
+
+        <!-- Content - List Page -->
+        <div id="content" class="space-y-6">
+          <!-- Container -->
+          <div class="space-y-12 rounded-[30px] bg-white p-6">
+            <!-- Table -->
+            <div class="w-full overflow-x-auto">
+              <table class="min-w-full">
+                <thead
+                  class="border-separate border-spacing-0 text-sm font-extrabold"
+                >
+                  <tr>
+                    <th
+                      class="bg-[#EEEEEE] p-4 first:rounded-l-[20px] last:rounded-r-[20px]"
+                    >
+                      <div class="flex items-center gap-6">
+                        <input type="checkbox" />
+                      </div>
+                    </th>
+                    <th
+                      class="bg-[#EEEEEE] p-4 first:rounded-l-[20px] last:rounded-r-[20px]"
+                    >
+                      <div class="flex items-center gap-6">
+                        <span>Nama Karyawan</span>
+                        <button type="button">
+                          <img
+                            class="w-[15px]"
+                            src="/assets/icons/arrow-3.svg"
+                          />
+                        </button>
+                      </div>
+                    </th>
+                    <th
+                      class="bg-[#EEEEEE] p-4 first:rounded-l-[20px] last:rounded-r-[20px]"
+                    >
+                      <div class="flex items-center gap-6">
+                        <span>ID Karyawan</span>
+                        <button type="button">
+                          <img
+                            class="w-[15px]"
+                            src="/assets/icons/arrow-3.svg"
+                          />
+                        </button>
+                      </div>
+                    </th>
+                    <th
+                      class="bg-[#EEEEEE] p-4 first:rounded-l-[20px] last:rounded-r-[20px]"
+                    >
+                      <div class="flex items-center gap-6">
+                        <span>Kantor</span>
+                        <button type="button">
+                          <img
+                            class="w-[15px]"
+                            src="/assets/icons/arrow-3.svg"
+                          />
+                        </button>
+                      </div>
+                    </th>
+                    <th
+                      class="bg-[#EEEEEE] p-4 first:rounded-l-[20px] last:rounded-r-[20px]"
+                    >
+                      <div class="flex items-center gap-6">
+                        <span>Divisi</span>
+                        <button type="button">
+                          <img
+                            class="w-[15px]"
+                            src="/assets/icons/arrow-3.svg"
+                          />
+                        </button>
+                      </div>
+                    </th>
+                    <th
+                      class="bg-[#EEEEEE] p-4 first:rounded-l-[20px] last:rounded-r-[20px]"
+                    >
+                      <div class="flex items-center gap-6">
+                        <span>Jabatan</span>
+                        <button type="button">
+                          <img
+                            class="w-[15px]"
+                            src="/assets/icons/arrow-3.svg"
+                          />
+                        </button>
+                      </div>
+                    </th>
+                    <th
+                      class="bg-[#EEEEEE] p-4 first:rounded-l-[20px] last:rounded-r-[20px]"
+                    >
+                      <div class="flex items-center gap-6">
+                        <span>Status</span>
+                        <button type="button">
+                          <img
+                            class="w-[15px]"
+                            src="/assets/icons/arrow-3.svg"
+                          />
+                        </button>
+                      </div>
+                    </th>
+                    <th
+                      class="bg-[#EEEEEE] p-4 first:rounded-l-[20px] last:rounded-r-[20px]"
+                    >
+                      <div class="flex items-center gap-6">
+                        <span>Action</span>
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b">
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <input type="checkbox" />
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <img
+                          class="h-[30px] w-[30px] rounded-full object-cover"
+                          src="/assets/avatar_placeholder.png"
+                        />
+                        <span class="text-sm font-bold">Darrell Steward</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">ID: TKI-MOD-0004</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Modena Kuningan</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Developer</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">BE Developer</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Harian Lepas</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <button
+                          class="flex items-center gap-2 rounded-[40px] border border-[#EEEEEE] px-5 py-3 text-xs shadow-md"
+                        >
+                          <span>Action</span>
+                          <img
+                            class="w-[15px]"
+                            src="/assets/icons/arrow-down-1.svg"
+                          />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <input type="checkbox" />
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <img
+                          class="h-[30px] w-[30px] rounded-full object-cover"
+                          src="/assets/avatar_placeholder.png"
+                        />
+                        <span class="text-sm font-bold">Darrell Steward</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">ID: TKI-MOD-0004</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Modena Kuningan</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Developer</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">BE Developer</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Harian Lepas</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <button
+                          class="flex items-center gap-2 rounded-[40px] border border-[#EEEEEE] px-5 py-3 text-xs shadow-md"
+                        >
+                          <span>Action</span>
+                          <img
+                            class="w-[15px]"
+                            src="/assets/icons/arrow-down-1.svg"
+                          />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <input type="checkbox" />
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <img
+                          class="h-[30px] w-[30px] rounded-full object-cover"
+                          src="/assets/avatar_placeholder.png"
+                        />
+                        <span class="text-sm font-bold">Darrell Steward</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">ID: TKI-MOD-0004</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Modena Kuningan</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Developer</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">BE Developer</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Harian Lepas</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <button
+                          class="flex items-center gap-2 rounded-[40px] border border-[#EEEEEE] px-5 py-3 text-xs shadow-md"
+                        >
+                          <span>Action</span>
+                          <img
+                            class="w-[15px]"
+                            src="/assets/icons/arrow-down-1.svg"
+                          />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <input type="checkbox" />
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <img
+                          class="h-[30px] w-[30px] rounded-full object-cover"
+                          src="/assets/avatar_placeholder.png"
+                        />
+                        <span class="text-sm font-bold">Darrell Steward</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">ID: TKI-MOD-0004</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Modena Kuningan</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Developer</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">BE Developer</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Harian Lepas</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <button
+                          class="flex items-center gap-2 rounded-[40px] border border-[#EEEEEE] px-5 py-3 text-xs shadow-md"
+                        >
+                          <span>Action</span>
+                          <img
+                            class="w-[15px]"
+                            src="/assets/icons/arrow-down-1.svg"
+                          />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <input type="checkbox" />
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <img
+                          class="h-[30px] w-[30px] rounded-full object-cover"
+                          src="/assets/avatar_placeholder.png"
+                        />
+                        <span class="text-sm font-bold">Darrell Steward</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">ID: TKI-MOD-0004</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Modena Kuningan</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Developer</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">BE Developer</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Harian Lepas</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <button
+                          class="flex items-center gap-2 rounded-[40px] border border-[#EEEEEE] px-5 py-3 text-xs shadow-md"
+                        >
+                          <span>Action</span>
+                          <img
+                            class="w-[15px]"
+                            src="/assets/icons/arrow-down-1.svg"
+                          />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <input type="checkbox" />
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <img
+                          class="h-[30px] w-[30px] rounded-full object-cover"
+                          src="/assets/avatar_placeholder.png"
+                        />
+                        <span class="text-sm font-bold">Darrell Steward</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">ID: TKI-MOD-0004</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Modena Kuningan</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Developer</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">BE Developer</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Harian Lepas</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <button
+                          class="flex items-center gap-2 rounded-[40px] border border-[#EEEEEE] px-5 py-3 text-xs shadow-md"
+                        >
+                          <span>Action</span>
+                          <img
+                            class="w-[15px]"
+                            src="/assets/icons/arrow-down-1.svg"
+                          />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <input type="checkbox" />
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <img
+                          class="h-[30px] w-[30px] rounded-full object-cover"
+                          src="/assets/avatar_placeholder.png"
+                        />
+                        <span class="text-sm font-bold">Darrell Steward</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">ID: TKI-MOD-0004</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Modena Kuningan</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Developer</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">BE Developer</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Harian Lepas</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <button
+                          class="flex items-center gap-2 rounded-[40px] border border-[#EEEEEE] px-5 py-3 text-xs shadow-md"
+                        >
+                          <span>Action</span>
+                          <img
+                            class="w-[15px]"
+                            src="/assets/icons/arrow-down-1.svg"
+                          />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <input type="checkbox" />
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <img
+                          class="h-[30px] w-[30px] rounded-full object-cover"
+                          src="/assets/avatar_placeholder.png"
+                        />
+                        <span class="text-sm font-bold">Darrell Steward</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">ID: TKI-MOD-0004</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Modena Kuningan</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Developer</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">BE Developer</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Harian Lepas</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <button
+                          class="flex items-center gap-2 rounded-[40px] border border-[#EEEEEE] px-5 py-3 text-xs shadow-md"
+                        >
+                          <span>Action</span>
+                          <img
+                            class="w-[15px]"
+                            src="/assets/icons/arrow-down-1.svg"
+                          />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <input type="checkbox" />
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <img
+                          class="h-[30px] w-[30px] rounded-full object-cover"
+                          src="/assets/avatar_placeholder.png"
+                        />
+                        <span class="text-sm font-bold">Darrell Steward</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">ID: TKI-MOD-0004</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Modena Kuningan</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Developer</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">BE Developer</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Harian Lepas</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <button
+                          class="flex items-center gap-2 rounded-[40px] border border-[#EEEEEE] px-5 py-3 text-xs shadow-md"
+                        >
+                          <span>Action</span>
+                          <img
+                            class="w-[15px]"
+                            src="/assets/icons/arrow-down-1.svg"
+                          />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <input type="checkbox" />
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <img
+                          class="h-[30px] w-[30px] rounded-full object-cover"
+                          src="/assets/avatar_placeholder.png"
+                        />
+                        <span class="text-sm font-bold">Darrell Steward</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">ID: TKI-MOD-0004</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Modena Kuningan</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Developer</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">BE Developer</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <span class="text-xs">Harian Lepas</span>
+                      </div>
+                    </td>
+                    <td class="p-4">
+                      <div class="flex items-center gap-4">
+                        <button
+                          class="flex items-center gap-2 rounded-[40px] border border-[#EEEEEE] px-5 py-3 text-xs shadow-md"
+                        >
+                          <span>Action</span>
+                          <img
+                            class="w-[15px]"
+                            src="/assets/icons/arrow-down-1.svg"
+                          />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- End Table -->
+
+            <!-- Pagination -->
+            <div
+              class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 font-urbanist"
+            >
+              <div class="flex gap-2">
+                <a href="#" class="rounded-full bg-[#F6F6F6] p-2">
+                  <img
+                    class="w-[20px] opacity-75"
+                    src="/assets/icons/arrow-left.svg"
+                    alt="Pagination Previous"
+                  />
+                </a>
+                <a href="#" class="rounded-full bg-[#F6F6F6] p-2">
+                  <img
+                    class="w-[20px] opacity-75"
+                    src="/assets/icons/arrow-right-1.svg"
+                    alt="Pagination Next"
+                  />
+                </a>
+              </div>
+
+              <div class="flex items-center gap-2 text-sm">
+                <span>Page</span>
+                <span
+                  class="rounded-lg border border-[#EEEEEE] bg-white px-3 py-1 font-bold"
+                >
+                  1
+                </span>
+                <span>of 5</span>
+              </div>
+
+              <span class="text-[#848484]">Display 1 to 15 of 50 data.</span>
+            </div>
+            <!-- End Pagination -->
+          </div>
+          <!-- End Cards Container -->
+        </div>
+        <!-- End Content - List Page -->
+      </section>
+      <!-- End Wrapper -->
+    </main>
+  </body>
+</html>
