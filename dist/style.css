@@ -590,6 +590,10 @@ video {
   margin: 1.5rem;
 }
 
+.m-4 {
+  margin: 1rem;
+}
+
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
@@ -1356,6 +1360,10 @@ video {
 @media (min-width: 1280px) {
   .xl\:ml-\[20vw\] {
     margin-left: 20vw;
+  }
+
+  .xl\:ml-\[15vw\] {
+    margin-left: 15vw;
   }
 
   .xl\:block {
